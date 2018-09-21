@@ -14,9 +14,15 @@
  *= require_self
  */
 h1 a{
-  color:red;
+  color:teal;
+
 }
 
 body{
-  background-color: grey;
+  background-color: white;
+}
+
+.navbar-nav > li{
+  padding-left:30px;
+  padding-right:30px;
 }

@@ -1,0 +1,24 @@
+<p>
+  <strong>Property name:</strong>
+  <%= @listing.property_title %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @listing.price %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @listing.location %>
+</p>
+<p>
+  <strong>description:</strong>
+  <%= @listing.description %>
+</p>
+
+<p>
+  <strong>Host:</strong>
+  <%= @user.full_name %>
+</p>
+
+<%= link_to 'Back', listings_path %>

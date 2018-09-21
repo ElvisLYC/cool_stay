@@ -38,3 +38,21 @@ Here is your client ID
 
 Here is your client secret
 zgvRiMzUEAGkKmcLxW2tiHrW
+
+rails g scaffold Lesson image:string title:string
+duration:integer cost:integer category:string language:string
+ level:string description:text
+rake db:migrate
+
+
+<ul >
+  <li>
+    <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+  </li>
+  <li>
+    <%= link_to 'Explore Now', controller: 'listings'%>
+   </li>
+  <li>
+    <%= link_to 'New listing', new_listing_path %>
+   </li>
+</ul>
