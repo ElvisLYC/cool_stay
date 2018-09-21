@@ -13,11 +13,13 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get 'home/index'
 
+  get 'listings/verify' => 'listings#verify', as: 'listing_pending_verification'
+  post 'listings/:id/verify' => 'listings#verify!', as: 'verify_listing'
+
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
   resources :articles
   resources :listings
-
   # testing listings
   # resources :users do
   #   resources :listings

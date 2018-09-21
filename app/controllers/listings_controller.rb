@@ -1,10 +1,10 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Listing.all
-    @listings_page = Listing.order(:location).page params[:page]
+    # @listings = Listing.all #call those with verified and order it
+    @listings = Listing.where(verify: true).order(:location)
+    @listings_page = @listings.page params[:page]
     # @listings = Listing.order('created_at DESC').page(params[:page]).per(25)
   end
-
 
   def show
     @listing = Listing.find(params[:id])
@@ -21,8 +21,19 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 
-  def create
+  def verify
+    @listings = Listing.where(verify:true)
+    @listings_page = Listing.order(:location).page params[:page]
+  end
 
+  def verify!
+    @listing = Listing.find(params[:id])
+    @listing.update(verify: true)
+
+    redirect_to listing_pending_verification_path
+  end
+
+  def create
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
     @user = User.find(@listing.user_id)
