@@ -1,5 +1,5 @@
-<% if current_user.role == "moderator" -%>
-  <p>You are admin</p>
+<% if current_user.role == "moderator" || current_user.role == "superadmin" -%>
+  <p>You are <%= @user_ranking.capitalize %></p>
   <%= link_to 'New listing', new_listing_path %>
   <%= paginate @listings_page %>
   <table>
@@ -26,7 +26,8 @@
 
 
 
-          <td><%= link_to 'Verify', verify_listing_path(listing), method: 'POST' %></td>
+          <td><%= link_to 'Verify', verify_listing_path(listing),
+          method: 'POST'%></td>
 
       </tr>
       <% end %>

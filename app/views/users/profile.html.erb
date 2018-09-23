@@ -1,0 +1,23 @@
+<h2>Profile of <%= @user_profile.full_name %></h2>
+<h3>Your listing</h3>
+<table>
+  <tr>
+    <th>Property</th>
+    <th>Location</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @user_listing.each do |listing| %>
+    <tr>
+      <td><%= listing.property_title %></td>
+      <td><%= listing.location %></td>
+      <td><%= listing.price %></td>
+      <td><%= listing.description %></td>
+      <td><%= link_to 'Destroy', listing_path(listing),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+</table>

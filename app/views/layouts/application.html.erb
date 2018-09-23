@@ -28,6 +28,9 @@
               <li class="nav-item">
                 <%= link_to 'New listing', new_listing_path %>
               </li>
+              <li>
+                <%= link_to 'Fix Profile', user_profile_path(@user_id) %>
+              </li>
               <li class="nav-item">
                 <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
               </li>

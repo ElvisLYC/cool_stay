@@ -2,7 +2,7 @@
 <%= link_to 'New listing', new_listing_path %>
 <%= paginate @listings_page %>
 
-<% if current_user.role == "moderator" -%>
+<% if current_user.role == "moderator"||current_user.role == "superadmin"-%>
   <p>Authorization level: <%= current_user.role.capitalize %> <a href="listings/verify">[Administration Page Here]</a></p>
   <table>
     <tr>

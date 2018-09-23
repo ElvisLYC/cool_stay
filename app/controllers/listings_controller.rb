@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
     # @listings = Listing.all #call those with verified and order it
     @listings = Listing.where(verify: true).order(:location)
     @listings_page = @listings.page params[:page]
+    @user_id = User.find(current_user.id)
     # @listings = Listing.order('created_at DESC').page(params[:page]).per(25)
   end
 
@@ -15,6 +16,7 @@ class ListingsController < ApplicationController
     @user = current_user
     @listing = Listing.new
     @listings = Article.all
+    @user_id = User.find(current_user.id)
   end
 
   def edit
@@ -22,6 +24,7 @@ class ListingsController < ApplicationController
   end
 
   def verify
+    @user_ranking = current_user.role
     @listings = Listing.where(verify:true)
     @listings_page = Listing.order(:location).page params[:page]
   end

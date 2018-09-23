@@ -66,3 +66,5 @@ gem "figaro"
 gem 'omniauth-google-oauth2'
 gem 'faker'
 gem 'kaminari'
+gem "bootstrap_form", ">= 4.0.0.alpha1"
+gem 'carrierwave', '~> 1.0'
