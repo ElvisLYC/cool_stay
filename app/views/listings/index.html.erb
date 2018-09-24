@@ -6,6 +6,7 @@
   <p>Authorization level: <%= current_user.role.capitalize %> <a href="listings/verify">[Administration Page Here]</a></p>
   <table>
     <tr>
+      <th>Photo</th>
       <th>Title</th>
       <th>Price</th>
       <th>Location</th>
@@ -16,6 +17,14 @@
     <% @listings_page.each do |listing| %>
     <% if listing.verify == true %>
       <tr>
+        <td>
+          <div class="thumb-image">
+          <% listing.photos.each do |photo| %>
+            <%= image_tag photo.url %>
+          <% end %>
+        </div>
+        </td>
+
         <td><%= listing.property_title %></td>
         <td><%= listing.price %></td>
         <td><%= listing.location %></td>

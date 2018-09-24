@@ -34,8 +34,12 @@
       <%= form.text_area :description %>
     </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <p>
+      <%= form.file_field :photos, multiple: true %>
+    </p>
+
+    <p>
+      <%= form.submit %>
+    </p>
 
 <% end %>

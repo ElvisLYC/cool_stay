@@ -4,6 +4,7 @@
   <%= paginate @listings_page %>
   <table>
     <tr>
+      <th>ID</th>
       <th>Title</th>
       <th>Price</th>
       <th>Location</th>
@@ -14,6 +15,7 @@
     <% @listings_page.each do |listing| %>
       <% if listing.verify == false %>
       <tr>
+        <td><%= listing.id %></td>
         <td><%= listing.property_title %></td>
         <td><%= listing.price %></td>
         <td><%= listing.location %></td>

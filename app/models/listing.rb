@@ -1,6 +1,8 @@
 class Listing < ApplicationRecord
   belongs_to :user
 
+  mount_uploaders :photos, AvatarUploader
+
 
   validates :property_title, presence: true,
                   length: { minimum: 4 }

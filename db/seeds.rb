@@ -15,7 +15,7 @@ user = {}
 user['password'] = 'asdf'
 
 ActiveRecord::Base.transaction do
-  100.times do
+  20.times do
     user['full_name'] = Faker::Name.name
     user['email'] = Faker::Internet.email
     # user['role'] = 0
