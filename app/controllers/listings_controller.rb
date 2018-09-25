@@ -80,6 +80,6 @@ end
   end
   private
     def listing_params
-      params.require(:listing).permit(:property_title, :location, :price, :description, :user_id, {photos:[]})
+      params.require(:listing).permit(:property_title, :location, :price, :description, :user_id, {photos:[]}, :room_number, :bed_number, :guest_number, :country, :state, :city, :zipcode, :address)
     end
 end

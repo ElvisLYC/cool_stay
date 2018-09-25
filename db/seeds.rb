@@ -18,6 +18,10 @@ ActiveRecord::Base.transaction do
   20.times do
     user['full_name'] = Faker::Name.name
     user['email'] = Faker::Internet.email
+    user['gender'] = Faker::Gender.binary_type
+    user['phone'] = Faker::PhoneNumber.phone_number
+    user['country'] = Faker::Address.country
+    user['birthdate'] = Faker::Date.between(50.years.ago, Date.today)
     # user['role'] = 0
     User.create(user)
   end
@@ -34,6 +38,16 @@ ActiveRecord::Base.transaction do
     listing['price'] = rand(80..500)
     listing['location'] = Faker::Address.state
     listing['description'] = Faker::Hipster.sentence
+
+    listing['room_number'] = rand(0..5)
+    listing['bed_number'] = rand(1..6)
+    listing['guest_number'] = rand(1..10)
+
+    listing['country'] = Faker::Address.country
+    listing['state'] = Faker::Address.state
+    listing['city'] = Faker::Address.city
+    listing['zipcode'] = Faker::Address.zip_code
+    listing['address'] = Faker::Address.street_address
 
     listing['user_id'] = uids.sample
 

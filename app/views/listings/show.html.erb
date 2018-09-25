@@ -1,10 +1,6 @@
 
 
 <table>
-  <tr>
-    <th>Photo</th>
-    <th colspan="3"></th>
-  </tr>
   <% @listing_photos.each_with_index do |listing,index| %>
     <tr>
       <td><%= image_tag listing.url %></td>
@@ -14,7 +10,8 @@
                   data: { confirm: 'Are you sure?' } %>
       </td>
     </tr>
-    <% end %>
+
+  <% end -%>
 </table>
 
 <p>
