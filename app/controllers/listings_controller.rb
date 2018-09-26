@@ -4,10 +4,7 @@ class ListingsController < ApplicationController
     @listings = Listing.where(verify: true).order(:location)
     @listings_page = @listings.page params[:page]
     @user_id = User.find(current_user.id)
-    # @listing = Listing.find(params[:id])
-    # @listing_photos = @listing.photos
-    # @listing = Listing.find(params[:id])
-    # @listings = Listing.order('created_at DESC').page(params[:page]).per(25)
+
   end
 
   def show
@@ -16,9 +13,10 @@ class ListingsController < ApplicationController
     @reservation = Reservation.new
 
     # @listing_photos = @listing.photos
-    @listings = Listing.where(id:params[:id])
+    @listings = Listing.find(params[:id])
     @user = User.find(@listing.user_id)
-    @user_id = User.find(current_user.id)
+    @host = @user
+    # @user_id = User.find(current_user.id)
   end
 
   def new
@@ -81,6 +79,7 @@ end
     # @user_profile.remove_avatar!
     redirect_to root_path
   end
+
   private
     def listing_params
       params.require(:listing).permit(:property_title, :location, :price, :description, :user_id, {photos:[]}, :room_number, :bed_number, :guest_number, :country, :state, :city, :zipcode, :address)

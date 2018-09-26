@@ -15,3 +15,5 @@
     <td><%= image_tag listing.url %></td>
   </tr>
 <% end -%>
+
+<%= link_to 'Pay Now', verify_payment_path(@listing, @reservation) %>

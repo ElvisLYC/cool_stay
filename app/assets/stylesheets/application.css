@@ -37,8 +37,12 @@ body{
 .navbar-nav > li{
   padding-left:30px;
   padding-right:30px;
+
 }
 
+li.align_right{
+  padding-left: 55vw;
+}
 .thumb-image img{
     width: 50px !important;
     height: 50px !important;
@@ -62,4 +66,8 @@ table tr td,th{
 }
 .listing_table{
   width: 100vw;
+}
+
+.align_center{
+  text-align: center;
 }

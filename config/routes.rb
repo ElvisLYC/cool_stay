@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'braintree/new'
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -18,6 +19,10 @@ Rails.application.routes.draw do
   post 'users/:id/delete_avatar' => 'users#delete_avatar', as: 'delete_avatar'
   post 'users/:id/upload_avatar' => 'users#upload_avatar', as: 'upload_avatar'
   post 'listings/:id/delete_photo' => 'listings#delete_photo', as: 'delete_photo'
+
+  post 'listings/:listing_id/reservations/:id/payment' => 'braintree#checkout', as: 'checkout'
+  get 'listings/:listing_id/reservations/:id/payment' => 'braintree#new', as: 'verify_payment'
+  # get 'listings/:listing_id/reservations/:id/payment' => 'braintree#checkout', as: 'checkout'
 
   get 'users/:id/edit' => 'users#edit', as: 'edit_profile'
   get 'listings/:id/edit' => 'listings#edit', as: 'edit_listing'

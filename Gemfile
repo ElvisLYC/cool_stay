@@ -72,3 +72,4 @@ gem "mini_magick"
 gem 'bootstrap-datepicker-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'braintree'

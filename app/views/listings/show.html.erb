@@ -34,7 +34,7 @@
 
 <p>
   <strong>Host:</strong>
-  <%= @user.full_name %>
+  <%= @host.full_name %>
 </p>
 
 <% if @reservation.errors != nil %>
@@ -42,7 +42,7 @@
     <%= error %>
   <% end %>
 <% end %>
-<%= form_with model: @reservation, url: listing_reservations_path(@listing.id), local: true do |form| %>
+<%= form_with scope: :reservation, url: listing_reservations_path(@listing.id), local: true do |form| %>
 
 
 <%= form.text_field :start_date, {class: 'datepicker', placeholder:'Check-in'} %>
