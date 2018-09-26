@@ -12,7 +12,10 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    @listing_photos = @listing.photos
+
+    @reservation = Reservation.new
+
+    # @listing_photos = @listing.photos
     @listings = Listing.where(id:params[:id])
     @user = User.find(@listing.user_id)
     @user_id = User.find(current_user.id)

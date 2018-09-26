@@ -1,0 +1,17 @@
+<h2>Your booking is confirmed</h2>
+<h3>Kindly refer to details as below:-</h3>
+
+<p><strong>Property name:</strong> <%= @listing.property_title %></p>
+<p><strong>Check In:</strong> <%= @reservation.start_date %></p>
+<p><strong>Check Out:</strong> <%= @reservation.end_date %></p>
+<p><strong>Daily Rate: RM</strong> <%= @listing.price %></p>
+<p><strong>Total Amount: RM</strong> <%= @reservation.total_price %></p>
+<p><strong>Description</strong> <%= @listing.description %></p>
+<p><strong>Bed Number</strong> <%= @listing.bed_number %></p>
+<p><strong>Guest Number</strong> <%= @listing.guest_number %></p>
+
+<% @listing.photos.each_with_index do |listing,index| %>
+  <tr>
+    <td><%= image_tag listing.url %></td>
+  </tr>
+<% end -%>

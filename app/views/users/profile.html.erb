@@ -43,3 +43,54 @@
     </tr>
     <% end %>
 </table>
+
+
+<br>
+
+
+<h2>Booking on your property</h2>
+<table class="listing_table">
+  <tr>
+    <th>Reservation ID</th>
+    <th>Check In</th>
+    <th>Check Out</th>
+    <th>No. of day(s)</th>
+    <th>Total Payment</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @user_listing.each_with_index do |listing,index| %>
+    <tr>
+      <td><%= @customer_bookings[index].id %></td>
+      <td><%= @customer_bookings[index].start_date %></td>
+      <td><%= @customer_bookings[index].end_date %></td>
+      <td><%= (@customer_bookings[index].end_date-@customer_bookings[index].start_date).to_i %></td>
+      <td><%= @customer_bookings[index].total_price %></td>
+      <td><%= link_to 'Show', listing_reservation_path(listing.id, @customer_bookings[index].id) %></td>
+
+    </tr>
+    <% end %>
+</table>
+
+
+<h2>Your Reservation</h2>
+<table class="listing_table">
+  <tr>
+    <th>Listing ID</th>
+    <th>Check In</th>
+    <th>Check Out</th>
+    <th>Total Payment</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @customer_bookings.each do |booking| %>
+    <tr>
+      <td><%= booking.listing_id %></td>
+      <td><%= booking.start_date %></td>
+      <td><%= booking.end_date %></td>
+      <td><%= booking.total_price %></td>
+      <td><%= link_to 'Show', listing_reservation_path(booking.listing_id, booking.id) %></td>
+
+    </tr>
+    <% end %>
+</table>

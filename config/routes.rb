@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   get 'users/:id/edit' => 'users#edit', as: 'edit_profile'
   get 'listings/:id/edit' => 'listings#edit', as: 'edit_listing'
-
+  # get 'reservations/new'
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
     get "users/admin"
@@ -33,7 +33,10 @@ Rails.application.routes.draw do
 
   # get "users/:id/deletes"
   resources :articles
-  resources :listings
+  resources :listings do
+    # remvoed :index
+    resources :reservations, only: [:index, :create, :update, :show, :delete]
+  end
   resources :users
 
   # testing listings

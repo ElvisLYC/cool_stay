@@ -1,7 +1,7 @@
 
 
 <table>
-  <% @listing_photos.each_with_index do |listing,index| %>
+  <% @listing.photos.each_with_index do |listing,index| %>
     <tr>
       <td><%= image_tag listing.url %></td>
       <td><%= link_to 'Update Listing', edit_listing_path(@listing) %></td>
@@ -36,5 +36,35 @@
   <strong>Host:</strong>
   <%= @user.full_name %>
 </p>
+
+<% if @reservation.errors != nil %>
+  <% @reservation.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+<%= form_with model: @reservation, url: listing_reservations_path(@listing.id), local: true do |form| %>
+
+
+<%= form.text_field :start_date, {class: 'datepicker', placeholder:'Check-in'} %>
+
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.datepicker').datepicker();
+    });
+  </script>
+
+
+  <%= form.text_field :end_date, {class: 'datepicker', placeholder:'Check-out'} %>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.datepicker').datepicker();
+    });
+  </script>
+<p>
+  <%= form.submit %>
+</p>
+<% end %>
 
 <%= link_to 'Back', listings_path %>

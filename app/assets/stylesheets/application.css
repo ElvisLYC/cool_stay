@@ -15,7 +15,10 @@
  */
  /*
   *= require rails_bootstrap_forms
+  *= require bootstrap-datepicker
   */
+
+
 h1 a{
   color:teal;
 
