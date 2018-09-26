@@ -1,0 +1,40 @@
+
+
+<table>
+  <% @listing_photos.each_with_index do |listing,index| %>
+    <tr>
+      <td><%= image_tag listing.url %></td>
+      <td><%= link_to 'Update Listing', edit_listing_path(@listing) %></td>
+      <td><%= link_to 'Delete', delete_photo_path(@listing.id),
+                  method: :post,
+                  data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+
+  <% end -%>
+</table>
+
+<p>
+  <strong>Property name:</strong>
+  <%= @listing.property_title %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @listing.price %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @listing.location %>
+</p>
+<p>
+  <strong>description:</strong>
+  <%= @listing.description %>
+</p>
+
+<p>
+  <strong>Host:</strong>
+  <%= @user.full_name %>
+</p>
+
+<%= link_to 'Back', listings_path %>

@@ -1,0 +1,73 @@
+<h1>Explore your desired destinations</h1>
+<%= link_to 'New listing', new_listing_path %>
+<%= paginate @listings_page %>
+
+<% if current_user.role == "moderator"||current_user.role == "superadmin"-%>
+  <p>Authorization level: <%= current_user.role.capitalize %> <a href="listings/verify">[Administration Page Here]</a></p>
+  <table>
+    <tr>
+      <th>Photo</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+
+    <% @listings_page.each do |listing| %>
+    <% if listing.verify == true %>
+      <tr>
+        <td>
+          <div class="thumb-image">
+          <% listing.photos.each do |photo| %>
+            <%= image_tag photo.url %>
+          <% end %>
+        </div>
+        </td>
+
+        <td><%= listing.property_title %></td>
+        <td><%= listing.price %></td>
+        <td><%= listing.location %></td>
+        <td><%= listing.description %></td>
+        <td><%= link_to 'Show', listing_path(listing) %></td>
+        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+        <td><%= link_to 'Destroy', listing_path(listing),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% else -%>
+      <% end %>
+    <% end %>
+  </table>
+
+
+
+<% else -%>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Price</th>
+    <th>Location</th>
+    <th>Description</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @listings_page.each do |listing| %>
+  <% if listing.verify == true %>
+    <tr>
+      <td><%= listing.property_title %></td>
+      <td><%= listing.price %></td>
+      <td><%= listing.location %></td>
+      <td><%= listing.description %></td>
+      <td><%= link_to 'Show', listing_path(listing) %></td>
+      <% if listing.user_id == current_user.id %>
+      <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+      <td><%= link_to 'Destroy', listing_path(listing),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+      <% end %>
+    <% end %>
+  <% end %>
+</table>
+<% end -%>

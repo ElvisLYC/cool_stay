@@ -32,3 +32,28 @@ private
 def user_params
   params.require(:user).permit(:email, :password, :full_name)
 end
+
+Here is your client ID
+931655227069-547pu9tg2799kd1v3mktgc3pljptmltg.apps.googleusercontent.com
+
+Here is your client secret
+zgvRiMzUEAGkKmcLxW2tiHrW
+
+rails g scaffold Lesson image:string title:string
+duration:integer cost:integer category:string language:string
+ level:string description:text
+rake db:migrate
+
+
+<ul >
+  <li>
+    <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+  </li>
+  <li>
+    <%= link_to 'Explore Now', controller: 'listings'%>
+   </li>
+  <li>
+    <%= link_to 'New listing', new_listing_path %>
+   </li>
+</ul>
+<%= image_tag @user_profile.avatar.url %>

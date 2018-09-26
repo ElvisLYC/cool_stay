@@ -1,0 +1,42 @@
+<% if current_user.role == "moderator" || current_user.role == "superadmin" -%>
+  <p>You are <%= @user_ranking.capitalize %></p>
+  <%= link_to 'New listing', new_listing_path %>
+  <%= paginate @listings_page %>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+
+    <% @listings_page.each do |listing| %>
+      <% if listing.verify == false %>
+      <tr>
+        <td><%= listing.id %></td>
+        <td><%= listing.property_title %></td>
+        <td><%= listing.price %></td>
+        <td><%= listing.location %></td>
+        <td><%= listing.description %></td>
+        <td><%= link_to 'Show', listing_path(listing) %></td>
+        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+        <td><%= link_to 'Destroy', listing_path(listing),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+
+
+
+          <td><%= link_to 'Verify', verify_listing_path(listing),
+          method: 'POST'%></td>
+
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
+<% else -%>
+  <p>You are not Authorized to access this page please go
+  <%= link_to 'Back', listings_path %></p>
+
+<% end -%>
