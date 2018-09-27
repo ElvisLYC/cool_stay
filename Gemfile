@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'bootstrap', '~>4.1.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -69,3 +69,9 @@ gem 'kaminari'
 gem "bootstrap_form", ">= 4.0.0.alpha1"
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
+gem 'bootstrap-datepicker-rails'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'braintree'
+gem 'letter_opener', :group => :development
+gem 'sidekiq'

@@ -15,7 +15,10 @@
  */
  /*
   *= require rails_bootstrap_forms
+  *= require bootstrap-datepicker
   */
+
+
 h1 a{
   color:teal;
 
@@ -25,7 +28,7 @@ h2{
 }
 
 body{
-  background-color: white;
+  background-color: lightgrey;
   /* background-image: url("santorini_1.jpg"); */
   background-size: 100vw 55vw;
   background-repeat: no-repeat;
@@ -34,8 +37,12 @@ body{
 .navbar-nav > li{
   padding-left:30px;
   padding-right:30px;
+
 }
 
+li.align_right{
+  padding-left: 55vw;
+}
 .thumb-image img{
     width: 50px !important;
     height: 50px !important;
@@ -59,4 +66,8 @@ table tr td,th{
 }
 .listing_table{
   width: 100vw;
+}
+
+.align_center{
+  text-align: center;
 }

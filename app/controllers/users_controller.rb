@@ -29,6 +29,8 @@ class UsersController < Clearance::UsersController
     @user_profile = User.find(params[:id])
     @user_listing = Listing.where(user_id: params[:id])
     @user_id = User.find(current_user.id)
+    @customer_bookings = Reservation.where(user_id: params[:id])
+
   end
 
   def create
