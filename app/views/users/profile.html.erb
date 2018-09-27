@@ -11,6 +11,7 @@
 <% end %>
 
 <h2>Profile of <%= @user_profile.full_name %></h2>
+<% if @user_listing.length != 0 %>
 <h3>Your listing</h3>
 <table class="listing_table">
   <tr>
@@ -43,11 +44,12 @@
     </tr>
     <% end %>
 </table>
+<% end %>
 
 
 <br>
 
-
+<% if @customer_bookings.length != 0 %>
 <h2>Booking on your property</h2>
 <table class="listing_table">
   <tr>
@@ -71,8 +73,9 @@
     </tr>
     <% end %>
 </table>
+<% end %>
 
-
+<% if @customer_bookings.length != 0 %>
 <h2>Your Reservation</h2>
 <table class="listing_table">
   <tr>
@@ -94,3 +97,4 @@
     </tr>
     <% end %>
 </table>
+<% end %>

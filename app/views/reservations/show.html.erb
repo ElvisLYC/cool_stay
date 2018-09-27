@@ -16,4 +16,7 @@
   </tr>
 <% end -%>
 
-<%= link_to 'Pay Now', verify_payment_path(@listing, @reservation) %>
+<% if @reservation.payment_status != true %>
+  <br>
+  <%= link_to 'Pay Now', verify_payment_path(@listing, @reservation) %>
+<% end -%>

@@ -24,12 +24,15 @@ class ReservationsController < ApplicationController
     @user = User.find(@reservation.user_id)
     @listing = Listing.find(params[:listing_id])
     @host = User.find(@listing.user_id)
-    if @reservation.save
-      redirect_to listing_reservation_path(@reservation.listing_id,@reservation.id) #reservations/:id
-      #listings/:listing_id/reservat
-    else
-      render 'listings/show'
-    end
+
+      if @reservation.save
+        # ReservationMailer.booking_email(@reservation, @user).deliver_now
+        ReservationJob.perform_later(@reservation, @user)
+        redirect_to listing_reservation_path(@reservation.listing_id,@reservation.id) #reservations/:id
+        #listings/:listing_id/reservat
+      else
+        render 'listings/show'
+      end
   end
 
   def verify_payment

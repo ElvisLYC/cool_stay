@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Congratulations ! You have received a booking from <%= @user.full_name %></h1>
+    <p>Reservation details as below:-  </p>
+    <ul>
+      <li>Customer's Name: <%= @user.full_name %></li>
+      <li>Reservation ID: <%= @reservation.id %></li>
+      <li>Property ID: <%= @reservation.listing_id %></li>
+      <li>Property ID: <%= @reservation.total_price %></li>
+      <li>Payment Status: <%= @reservation.payment_status %></li>
+
+
+
+
+    </ul>
+  </body>
+</html>

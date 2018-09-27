@@ -15,8 +15,14 @@ class BraintreeController < ApplicationController
      )
 
     if result.success?
+      # add email execution here
       @reservation = Reservation.find(params[:id])
       @reservation.update(payment_status: true)
+      @user = current_user
+      # Tell the UserMailer to send a welcome email after save
+
+      # ReservationMailer.perform_later(@reservation, @user)
+
       redirect_to :root, :flash => { :success => "Transaction successful!" }
     else
       redirect_to :root, :flash => { :error => "Transaction failed. Please try again." }

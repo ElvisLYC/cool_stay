@@ -73,3 +73,5 @@ gem 'bootstrap-datepicker-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'braintree'
+gem 'letter_opener', :group => :development
+gem 'sidekiq'
