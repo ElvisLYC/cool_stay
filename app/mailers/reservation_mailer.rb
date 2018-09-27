@@ -7,7 +7,7 @@ class ReservationMailer < ApplicationMailer
     mail(to: '365webdev@gmail.com', subject: 'Booking Email')
   end
 
-  def payment(reservation, user)
+  def payment_email(reservation, user)
     @reservation = reservation
     @user = user
     mail(to: '365webdev@gmail.com', subject: 'Payment Receipt')

@@ -34,7 +34,8 @@ User.all.each { |u| uids << u.id }
 
 ActiveRecord::Base.transaction do
   40.times do
-    listing['property_title'] = Faker::Address.city
+    listing['property_title'] = ["House", "Entire Floor", "Condominium", "Villa", "Townhouse",
+      "Castle", "Treehouse", "Igloo", "Yurt", "Cave", "Chalet", "Hut", "Tent", "Other"].sample
     listing['price'] = rand(80..500)
     listing['location'] = Faker::Address.state
     listing['description'] = Faker::Hipster.sentence
@@ -44,7 +45,8 @@ ActiveRecord::Base.transaction do
     listing['guest_number'] = rand(1..10)
 
     listing['country'] = Faker::Address.country
-    listing['state'] = Faker::Address.state
+    listing['state'] = ["Kuala Lumpur", "Seleangor", "Negeri Sembilan", "Kedah",
+      "Perak", "Penang", "Perlis", "Kelantan", "Sabah", "Sarawak", "Johor", "Terrenganu"].sample
     listing['city'] = Faker::Address.city
     listing['zipcode'] = Faker::Address.zip_code
     listing['address'] = Faker::Address.street_address

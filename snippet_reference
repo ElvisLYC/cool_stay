@@ -1,0 +1,4 @@
+Setup Sidekiq, Redis and Rails (3 terminals)
+rails s
+redis-server
+bundle exec sidekiq -q default -q mailers

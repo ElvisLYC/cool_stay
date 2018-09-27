@@ -16,9 +16,14 @@ class BraintreeController < ApplicationController
 
     if result.success?
       # add email execution here
+
       @reservation = Reservation.find(params[:id])
       @reservation.update(payment_status: true)
-      @user = current_user
+      @user = User.find(@reservation.user_id)
+      # email to host upon payment.
+      ReservationJob.perform_later(@reservation, @user)
+      # email to user upon payment
+      PaymentJob.perform_later(@reservation, @user)
       # Tell the UserMailer to send a welcome email after save
 
       # ReservationMailer.perform_later(@reservation, @user)

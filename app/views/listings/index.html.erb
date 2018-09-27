@@ -1,5 +1,4 @@
 <h1>Explore your desired destinations</h1>
-<%= link_to 'New listing', new_listing_path %>
 <%= paginate @listings_page %>
 
 <% if current_user.role == "moderator"||current_user.role == "superadmin"-%>
