@@ -1,10 +1,25 @@
 class ListingsController < ApplicationController
   def index
-    # @listings = Listing.all #call those with verified and order it
-    @listings = Listing.where(verify: true).order(:location)
-    @listings_page = @listings.page params[:page]
-    @user_id = User.find(current_user.id)
+    # @user_id = User.find(current_user.id)
 
+    # @listings = Listing.all #call those with verified and order it
+    @listings = Listing.where(verify: true)
+
+    # test scoping/filtering
+    # @listings = @listings.property_title(params[:property_title]) if params[:property_title].present?
+    # @listings = @listings.location(params[:location]) if params[:location].present?
+    #
+    @listings_page = @listings.page params[:page]
+  end
+
+  def search
+
+    @listings = Listing.where(verify: true)
+    # test scoping/filtering --> to refactor to module
+    @listings = @listings.property_title(params[:listing][:property_title]) if params[:listing][:property_title].present?
+    @listings = @listings.location(params[:listing][:location]) if params[:listing][:location].present?
+
+    @listings_page = @listings.page params[:page]
   end
 
   def show

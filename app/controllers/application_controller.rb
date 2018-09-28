@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include Clearance::Controller
   def index
     @user_id = User.find(current_user.id)
+
   end
 
   def application
