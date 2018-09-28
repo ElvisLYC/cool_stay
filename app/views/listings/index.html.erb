@@ -1,9 +1,17 @@
+<div class="pink-background">
+
 <%= form_for :listing, url: listings_search_path, method: :get do |f| %>
   <%= f.label :property_title %>:
   <%= f.text_field :property_title %>
   <%= f.label :location %>
   <%= f.text_field :location %>
   <%= f.submit "Search"%>
+<% end %>
+
+<!-- search form -->
+<%= form_for :listing, url: global_search_path, method: :get do |f| %>
+  <%= f.text_field :terms, placeholder: "search field" %>
+  <%= f.submit "Go"%>
 <% end %>
 
 <h1>Explore your desired destinations</h1>
@@ -62,3 +70,5 @@
     <% end %>
   <% end %>
 <% end -%>
+
+</div>

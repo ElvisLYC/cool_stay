@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'users/:id/edit' => 'users#edit', as: 'edit_profile'
   get 'listings/:id/edit' => 'listings#edit', as: 'edit_listing'
   get "listings/search" => 'listings#search', as: 'listings_search'
+  get "listings/global_search" => 'listings#global_search', as: 'global_search'
   # get 'reservations/new'
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 

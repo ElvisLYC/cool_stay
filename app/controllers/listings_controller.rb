@@ -1,19 +1,17 @@
 class ListingsController < ApplicationController
   def index
     # @user_id = User.find(current_user.id)
-
+    # @users = User.search_by_listings(params[:term]).with_pg_search_highlight
     # @listings = Listing.all #call those with verified and order it
     @listings = Listing.where(verify: true)
-
     # test scoping/filtering
     # @listings = @listings.property_title(params[:property_title]) if params[:property_title].present?
     # @listings = @listings.location(params[:location]) if params[:location].present?
-    #
     @listings_page = @listings.page params[:page]
   end
 
+# to refactor search -> filter
   def search
-
     @listings = Listing.where(verify: true)
     # test scoping/filtering --> to refactor to module
     @listings = @listings.property_title(params[:listing][:property_title]) if params[:listing][:property_title].present?
@@ -21,6 +19,23 @@ class ListingsController < ApplicationController
 
     @listings_page = @listings.page params[:page]
   end
+
+  def global_search
+    @listings = Listing.where(verify: true)
+    # test scoping/filtering --> to refactor to module
+    # @listings = @listings.property_title(params[:listing][:property_title]) if params[:listing][:property_title].present?
+    # @listings = @listings.location(params[:listing][:location]) if params[:listing][:location].present?
+    if params[:listing][:terms]
+
+      @listings = @listings.search_by_listings(params[:listing][:terms])
+    else
+      @Listings = @listings
+    end
+    @listings_page = @listings.page params[:page]
+  end
+  #filter vs search
+  # gem 'select2-rails'
+  # gem 'underscore-rails'
 
   def show
     @listing = Listing.find(params[:id])

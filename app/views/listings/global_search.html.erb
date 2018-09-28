@@ -1,0 +1,14 @@
+<h1>this is a global search page</h1>
+<% @listings.each do |listing| %>
+  <ul>
+    <li>Name: <%= listing.property_title %></li>
+    <li>Price: <%= listing.price %></li>
+    <li>Location: <%= listing.location %></li>
+    <li>Description: <%= listing.description %></li>
+    <li><%= link_to 'Show', listing_path(listing) %></li>
+    <li><%= link_to 'Edit', edit_listing_path(listing) %></li>
+    <li><%= link_to 'Destroy', listing_path(listing),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %></li>
+  </ul>
+  <% end %>
