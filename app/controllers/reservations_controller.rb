@@ -27,7 +27,6 @@ class ReservationsController < ApplicationController
 
       if @reservation.save
         # ReservationMailer.booking_email(@reservation, @user).deliver_now
-        ReservationJob.perform_later(@reservation, @user)
         redirect_to listing_reservation_path(@reservation.listing_id,@reservation.id) #reservations/:id
         #listings/:listing_id/reservat
       else

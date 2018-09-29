@@ -5,9 +5,16 @@ class Reservation < ApplicationRecord
   validates :end_date, presence: true
   validate :reserved_date, if: -> { start_date && end_date }
   validate :check_dates, if: -> { start_date && end_date }
+
+  # test scoping for filtering
+  scope :property_title, -> (property_title) { where property_title: property_title }
+  scope :location, -> (location) { where location: location }
+  # scope :state, -> (state) { where state: state }
+  # scope :price, -> (price) { where price: price }
+
+
+
   before_create :compute_total
-
-
 
   def check_dates
     if self.start_date > self.end_date
