@@ -1,32 +1,49 @@
 class ListingsController < ApplicationController
   def index
-    # @user_id = User.find(current_user.id)
-
-    # @listings = Listing.all #call those with verified and order it
     @listings = Listing.where(verify: true)
+    @listings_page = @listings.page params[:page]
+  end
 
-    # test scoping/filtering
-    # @listings = @listings.property_title(params[:property_title]) if params[:property_title].present?
-    # @listings = @listings.location(params[:location]) if params[:location].present?
+# to refactor search -> filter
+# test scoping/filtering --> to refactor to module
+  def search
+
+    @listings = Listing.where(verify: true)
+    x = params[:listing][:property_title]
+    y = params[:listing][:location]
+
+    @listings = @listings.filter(property_title:x,location:y)
+
+
+    # @listings = @listings.property_title(params[:listing][:property_title]) if params[:listing][:property_title].present?
+    # @listings = @listings.location(params[:listing][:location]) if params[:listing][:location].present?
     #
     @listings_page = @listings.page params[:page]
   end
 
-  def search
-
+  def global_search
     @listings = Listing.where(verify: true)
-    # test scoping/filtering --> to refactor to module
-    @listings = @listings.property_title(params[:listing][:property_title]) if params[:listing][:property_title].present?
-    @listings = @listings.location(params[:listing][:location]) if params[:listing][:location].present?
+    if params[:listing][:terms]
+      @listings = @listings.search_by_listings(params[:listing][:terms])
+    else
+      @Listings = @listings
+    end
+      @listings_page = @listings.page params[:page]
+  end
 
-    @listings_page = @listings.page params[:page]
+  def ajax_search
+    # @listings = Listing.where(verify: true)
+    @listings = Listing.search_by_listings(params["query"]).pluck(:location).uniq
+
+    respond_to do |format|
+      format.json { render json: @listings }
+      format.js # remote: true is sent a js format and sends you to search.js.erb
+    end
   end
 
   def show
     @listing = Listing.find(params[:id])
-
     @reservation = Reservation.new
-
     # @listing_photos = @listing.photos
     @listings = Listing.find(params[:id])
     @user = User.find(@listing.user_id)
@@ -56,7 +73,6 @@ class ListingsController < ApplicationController
   def verify!
     @listing = Listing.find(params[:id])
     @listing.update(verify: true)
-
     redirect_to listing_pending_verification_path
   end
 
@@ -91,7 +107,6 @@ end
     @listing = Listing.find(params[:id])
     @listing.remove_photos!
     @listing.save
-    # @user_profile.remove_avatar!
     redirect_to root_path
   end
 

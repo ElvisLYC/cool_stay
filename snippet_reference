@@ -2,3 +2,11 @@ Setup Sidekiq, Redis and Rails (3 terminals)
 rails s
 redis-server
 bundle exec sidekiq -q default -q mailers
+
+
+AJAX Search Note:-
+
+#  pluck(:item) --> return a column active record method
+# https://apidock.com/rails/ActiveRecord/Calculations/pluck
+#  uniq -> doesn't return duplicate value
+# reference: https://apidock.com/ruby/Array/uniq
