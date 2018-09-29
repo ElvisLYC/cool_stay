@@ -35,13 +35,7 @@ class ReservationsController < ApplicationController
   end
 
   def verify_payment
-    # @listing = Listing.find(params[:id])
-    # @reservation = Reservation.find(params[:id])
-    #   if @listing.update(listing_params)
-    #     redirect_to @listing
-    #   else
-    #     render 'edit'
-    #   end
+
   end
 
   private

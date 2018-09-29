@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'listings/:id/edit' => 'listings#edit', as: 'edit_listing'
   get "listings/search" => 'listings#search', as: 'listings_search'
   get "listings/global_search" => 'listings#global_search', as: 'global_search'
+  get "listings/ajax_search" => 'listings#ajax_search', as: 'ajax_search'
   # get 'reservations/new'
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 

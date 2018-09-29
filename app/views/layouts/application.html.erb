@@ -17,30 +17,37 @@
     <!-- amend this to red -->
     <% if signed_in? -%>
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">CoolStay</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <div>
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <%= link_to 'Explore Now', controller: 'listings'%>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'New listing', new_listing_path %>
-              </li>
-              <li>
-                <%= link_to 'My Profile', user_profile_path(current_user.id) %>
-              </li>
-              <li class="align_right">
-                <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">CoolStay</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to 'Explore Now', controller: 'listings'%>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'New listing', new_listing_path %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'My Profile', user_profile_path(current_user.id) %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
+          </li>
+
+            <%= form_for :listing, id: "search-listing", url: global_search_path, method: :get do |f| %>
+            <%= f.text_field :terms, list: "list", placeholder: "search field" %>
+            <datalist id="list"></datalist>
+
+            <%= f.submit "Go"%>
+
+            <% end %>
+        </ul>
+      </div>
+    </nav>
     <% else -%>
     <ul>
       <li><%= link_to "Sign in with Google", "/auth/google_oauth2" %></li>
