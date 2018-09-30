@@ -1,4 +1,8 @@
-
+<%= form_for :listing, url: global_search_path, method: :get do |f| %>
+<%= f.text_field :term, list: "list", placeholder: "search field" %>
+<datalist id="list"></datalist>
+<%= f.submit "Go"%>
+<% end -%>
 <h2>Plan your memorable journey with us now!</h2>
 
 <!-- <h3>----------------------------------------------------</h3>

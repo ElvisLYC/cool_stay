@@ -37,14 +37,6 @@
           <li class="nav-item active">
             <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
           </li>
-
-            <%= form_for :listing, id: "search-listing", url: global_search_path, method: :get do |f| %>
-            <%= f.text_field :terms, list: "list", placeholder: "search field" %>
-            <datalist id="list"></datalist>
-
-            <%= f.submit "Go"%>
-
-            <% end %>
         </ul>
       </div>
     </nav>

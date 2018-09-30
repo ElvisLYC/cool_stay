@@ -1,6 +1,11 @@
 <div class="pink-background">
   <!-- search form -->
   <div class="search-div">
+    <%= form_for :listing, url: global_search_path, method: :get do |f| %>
+    <%= f.text_field :term, list: "list", placeholder: "search field" %>
+    <datalist id="list"></datalist>
+    <%= f.submit "Go"%>
+    <% end -%>
 
     <p>Filter by:</p>
     <%= form_for :listing, url: listings_search_path, method: :get do |f| %>
@@ -13,31 +18,37 @@
   </div>
 <% end %>
 
-
 <h1>Explore your desired destinations</h1>
 <%= paginate @listings_page %>
 <% if current_user.role == "moderator"||current_user.role == "superadmin"-%>
   <p>Authorization level: <%= current_user.role.capitalize %> <a href="listings/verify">[Administration Page Here]</a></p>
-    <% @listings_page.each do |listing| %>
-    <% if listing.verify == true %>
-      <ul>
-       <div class="thumb-image">
-        <% listing.photos.each do |photo| %>
-          <%= image_tag photo.url %>
-        <% end %>
-       </div>
+    <% @listings.each do |listing| %>
+      <% if listing.verify == true %>
 
-        <h3>Name: <%= listing.property_title %></h3>
-        <li>Price: <%= listing.price %></li>
-        <li>Location: <%= listing.location %></li>
-        <li>Description: <%= listing.description %></li>
-        <li><%= link_to 'Show', listing_path(listing) %></li>
-        <li><%= link_to 'Edit', edit_listing_path(listing) %></li>
-        <li><%= link_to 'Destroy', listing_path(listing),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></li>
-      </ul>
-      <% end %>
+
+
+                  <div class="d-flex flex-row">
+                        <div class="p-2">
+                          <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <% if listing.photos[0] == nil %>
+                              <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
+                              <% else -%>
+                              <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
+                              <% end %>
+                              <h5 class="card-title"><%= listing.property_title %></h5>
+                              <p class="card-text"><%= listing.price %></p>
+                              <p class="card-text"><%= listing.location %></p>
+                              <p class="card-text"><%= listing.description %></p>
+                              <a href="#" class="btn btn-primary"><%= link_to 'Show', listing_path(listing) %></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+        <% end %>
     <% end %>
 
 

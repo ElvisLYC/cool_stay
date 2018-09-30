@@ -1,7 +1,7 @@
 class Listing < ApplicationRecord
   include PgSearch
   include Filterable
-  
+
 
   belongs_to :user
   has_many :reservations
@@ -24,6 +24,7 @@ class Listing < ApplicationRecord
                   length: { minimum: 3 }
   validates :location, presence: true,
                   length: { minimum: 4 }
+  # validates :photos, presence: true
 # scopingA
   scope :property_title, -> (property_title) { where property_title: property_title }
   scope :location, -> (location) { where location: location }

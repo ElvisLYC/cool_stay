@@ -2,29 +2,27 @@ class ListingsController < ApplicationController
   def index
     @listings = Listing.where(verify: true)
     @listings_page = @listings.page params[:page]
+
   end
 
 # to refactor search -> filter
 # test scoping/filtering --> to refactor to module
   def search
-
     @listings = Listing.where(verify: true)
     x = params[:listing][:property_title]
     y = params[:listing][:location]
 
     @listings = @listings.filter(property_title:x,location:y)
-
-
     # @listings = @listings.property_title(params[:listing][:property_title]) if params[:listing][:property_title].present?
     # @listings = @listings.location(params[:listing][:location]) if params[:listing][:location].present?
-    #
     @listings_page = @listings.page params[:page]
   end
 
   def global_search
+
     @listings = Listing.where(verify: true)
-    if params[:listing][:terms]
-      @listings = @listings.search_by_listings(params[:listing][:terms])
+    if params[:listing][:term]
+      @listings = @listings.search_by_listings(params[:listing][:term])
     else
       @Listings = @listings
     end
@@ -32,9 +30,8 @@ class ListingsController < ApplicationController
   end
 
   def ajax_search
-    # @listings = Listing.where(verify: true)
+    @listings = Listing.where(verify: true)
     @listings = Listing.search_by_listings(params["query"]).pluck(:location).uniq
-
     respond_to do |format|
       format.json { render json: @listings }
       format.js # remote: true is sent a js format and sends you to search.js.erb
@@ -81,7 +78,12 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
     @user = User.find(@listing.user_id)
+
     if @listing.save
+      # if @listing.photos == nil
+      #   @listing.update(photos: "/assets/images/No_Image_Available.png")
+      #   @listing.save
+      # end
       redirect_to @listing
     else
       render 'new'

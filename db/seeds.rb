@@ -50,7 +50,6 @@ ActiveRecord::Base.transaction do
     listing['city'] = Faker::Address.city
     listing['zipcode'] = Faker::Address.zip_code
     listing['address'] = Faker::Address.street_address
-
     listing['user_id'] = uids.sample
 
     Listing.create(listing)
