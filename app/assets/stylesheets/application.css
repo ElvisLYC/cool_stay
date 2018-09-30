@@ -43,7 +43,7 @@ body{
 li.align_right{
   padding-left: 55vw;
 }
-.thumb-image img{
+div .thumb-image img{
     width: 100px !important;
     height: 100px !important;
 

@@ -57,3 +57,33 @@ rake db:migrate
    </li>
 </ul>
 <%= image_tag @user_profile.avatar.url %>
+
+
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= listing.property_title %></h5>
+    <p class="card-text"><%= listing.price %></p>
+    <p class="card-text"><%= listing.location %></p>
+    <p class="card-text"><%= listing.description %></p>
+    <a href="#" class="btn btn-primary"><%= link_to 'Show', listing_path(listing) %></a>
+  </div>
+</div>
+
+<ul>
+ <div >
+  <% listing.photos.each do |photo| %>
+    <%= image_tag photo.url, :class => "thumb_image"%>
+  <% end %>
+ </div>
+  <h3>Name: <%= listing.property_title %></h3>
+  <li>Price: <%= listing.price %></li>
+  <li>Location: <%= listing.location %></li>
+  <li>Description: <%= listing.description %></li>
+  <li><%= link_to 'Show', listing_path(listing) %></li>
+  <li><%= link_to 'Edit', edit_listing_path(listing) %></li>
+  <li><%= link_to 'Destroy', listing_path(listing),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></li>
+</ul>
