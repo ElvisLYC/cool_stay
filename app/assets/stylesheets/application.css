@@ -75,8 +75,8 @@ table tr td,th{
 }
 .card-deck{
   display: inline-flex !important;
-  width: 30vw !important;
-  height: 25.5vw !important;
+  width: 300px !important;
+  height: 250px !important;
   /* padding:50px !important; */
   margin: 20px;
 }
@@ -87,9 +87,9 @@ table tr td,th{
 }
 
 div .card{
-  width: 30vw !important;
-  height: 25vw !important;
-  line-height: 1.0 !important;
+  width: 300px !important;
+  height: 250px !important;
+  line-height: 0.8 !important;
 }
 
 div .card-body{
@@ -99,7 +99,7 @@ div .card-body{
 
 .card-text{
   color: red !important;
-  font-size: 1.2vw;
+  font-size: 0.8vw;
 }
 
 .pagination{

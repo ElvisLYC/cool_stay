@@ -50,13 +50,9 @@
         </div>
       </nav>
     <% else -%>
-      <ul>
-        <li><%= link_to "Sign in with Google", "/auth/google_oauth2" %></li>
-        <li><%= link_to t(".sign_in"), sign_in_path %></li>
-      </ul>
+
     <% end -%>
   </div>
-
     <div id="flash">
       <% flash.each do |key, value| -%>
         <div id="flash_<%= key %>"><%=h value %></div>

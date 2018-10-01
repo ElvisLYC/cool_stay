@@ -5,9 +5,9 @@
           <div class="card" style="width: 18rem;">
             <div class="card-body">
               <% if listing.photos[0] == nil %>
-              <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
+                <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
               <% else -%>
-              <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
+                <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
               <% end %>
               <h5 class="card-title"><%= listing.property_title %></h5>
               <p class="card-text"><%= listing.price %></p>
