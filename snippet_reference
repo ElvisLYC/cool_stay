@@ -44,6 +44,8 @@ Deployment Note:-
 
 
 important : heroku logs -t to check database status
+important : git push heroku master
+heroku run rake db:migrate
 
 
 
