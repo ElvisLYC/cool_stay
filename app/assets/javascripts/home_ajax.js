@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 
   $("#listing_term").keyup(function(){
     autocomplete()

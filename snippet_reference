@@ -41,3 +41,13 @@ Deployment Note:-
     -Run database migrations (the database is automatically created) heroku run rake db:migrate
     -Go to heroku.com on your browser.
     -You can run on free dynos for now, but make sure both your rails server and sidekiq are both running (see screenshot below)! Read here to understandHeroku Dynos.
+
+
+important : heroku logs -t to check database status
+
+
+
+
+
+Inserting image:-
+[ Rails.root.join("app/assets/images/No_Image_Available.png").open]
