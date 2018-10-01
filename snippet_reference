@@ -10,3 +10,34 @@ AJAX Search Note:-
 # https://apidock.com/rails/ActiveRecord/Calculations/pluck
 #  uniq -> doesn't return duplicate value
 # reference: https://apidock.com/ruby/Array/uniq
+
+
+Deployment Note:-
+#Use the foreman gem to manage starting and stopping Rails server and Sidekiq with a Procfile.
+->Heroku apps include a Procfile that specifies the commands that are executed by the app’s dynos. You can use a Procfile to declare a variety of process types, including:
+  1.Your app’s web server
+  2.Multiple types of worker processes
+  3.A singleton process, such as a clock
+  4.Tasks to run before a new release is deployed
+  5.Each dyno in your app belongs to one of the declared process types, and it executes the command associated with that process type.
+  6.There are three heroku dyno i.e.,
+    -web -> dyno of "web process" defined in PROCFILE. Receive HTTP traffic from router
+    -worker -> any process declared in procfile other than "web". Used for background jobs, queueing systems, and timed jobs.
+    -one-off ->One-off dynos are temporary dynos that can run detached, or with their input/output attached to your local terminal.
+              They’re loaded with your latest release. They can be used to handle administrative tasks, such as database migrations and console sessions.
+              They can also be used to run occasional background work, as with Heroku Scheduler.
+  7. IMPORTANT: The Procfile is always a simple text file that is named Procfile without a file extension.
+                For example, Procfile.txt is not valid.
+  8. IMPORTANT: Procfile format: <process type>: <command>
+  9. Procfile for a Rails web app might include the following process type:     web: bundle exec rails server -p $PORT
+
+
+  Deplyment Steps:-
+    -Have a Heroku account.
+    -Have Heroku toolbelt installed on your computer.
+    -Make sure your app's code base is managed with Git.
+    -Create an app on Heroku heroku create <app-name>
+    -Deploy your app: git push heroku master
+    -Run database migrations (the database is automatically created) heroku run rake db:migrate
+    -Go to heroku.com on your browser.
+    -You can run on free dynos for now, but make sure both your rails server and sidekiq are both running (see screenshot below)! Read here to understandHeroku Dynos.

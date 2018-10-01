@@ -18,7 +18,9 @@
   *= require bootstrap-datepicker
   */
 
+.global-body{
 
+}
 h1 a{
   color:teal;
 
@@ -28,7 +30,7 @@ h2{
 }
 
 body{
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
   /* background-image: url("santorini_1.jpg"); */
   background-size: 100vw 55vw;
   background-repeat: no-repeat;
@@ -70,4 +72,39 @@ table tr td,th{
 
 .align_center{
   text-align: center;
+}
+.card-deck{
+  display: inline-flex !important;
+  width: 30vw !important;
+  height: 25.5vw !important;
+  overflow:  visible | hidden | scroll | auto | inherit !important;
+  /* padding:50px !important; */
+  margin: 20px;
+}
+
+.card-img-top{
+  height: 45% !important;
+  width: 100% !important;
+}
+
+div .card{
+  width: 30vw !important;
+  height: 25vw !important;
+  line-height: 1.0 !important;
+}
+
+div .card-body{
+  width: 100% !important;
+  height: 30% !important;
+}
+
+.card-text{
+  color: red !important;
+  font-size: 1.2vw;
+}
+
+.pagination{
+  margin-left: 20vw !important;
+  padding:  20px !important;
+  font-size: 30px;
 }

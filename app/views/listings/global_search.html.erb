@@ -1,14 +1,19 @@
-<h1>this is a global search page</h1>
 <% @listings.each do |listing| %>
-  <ul>
-    <li>Name: <%= listing.property_title %></li>
-    <li>Price: <%= listing.price %></li>
-    <li>Location: <%= listing.location %></li>
-    <li>Description: <%= listing.description %></li>
-    <li><%= link_to 'Show', listing_path(listing) %></li>
-    <li><%= link_to 'Edit', edit_listing_path(listing) %></li>
-    <li><%= link_to 'Destroy', listing_path(listing),
-          method: :delete,
-          data: { confirm: 'Are you sure?' } %></li>
-  </ul>
+  <% if listing.verify == true %>
+    <div class="card-deck">
+        <div class="card">
+            <% if listing.photos[0] == nil %>
+              <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
+            <% else -%>
+              <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= listing.property_title %></h5>
+              <p class="card-text"><%= listing.price %></p>
+              <p class="card-text"><%= listing.location %></p>
+              <a href="#" class="btn btn-primary"> <%= link_to 'Details', listing_path(listing) %> </a>
+            </div>
+          </div>
+      </div>
+    <% end %>
   <% end %>
