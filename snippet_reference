@@ -42,11 +42,18 @@ Deployment Note:-
     -Go to heroku.com on your browser.
     -You can run on free dynos for now, but make sure both your rails server and sidekiq are both running (see screenshot below)! Read here to understandHeroku Dynos.
 
+How to implement a changes to heroku :-
+- git add .
+- git commit -m""
+- git git push
+- git push heroku master
+- heroku run rake db:migrate
+- heroku restart
 
-important : heroku logs -t to check database status
-important : git push heroku master
-heroku run rake db:migrate
-
+Others:-
+- heroku bundle exec rake db:seed
+- heroku logs -t      to check database status
+- heroku rails console
 
 
 
