@@ -76,3 +76,4 @@ gem 'braintree'
 gem 'letter_opener', :group => :development
 gem 'sidekiq'
 gem 'pg_search'
+gem 'rails_12factor', group: :production

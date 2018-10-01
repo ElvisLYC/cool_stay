@@ -1,4 +1,4 @@
-<div class="pink-background">
+  <h3>Explore your desired destinations</h3>
   <!-- search form -->
   <div class="search-div">
     <%= form_for :listing, url: global_search_path, method: :get do |f| %>
@@ -7,49 +7,40 @@
     <%= f.submit "Go"%>
     <% end -%>
 
-    <p>Filter by:</p>
+    <!-- <p>Filter by:</p>
     <%= form_for :listing, url: listings_search_path, method: :get do |f| %>
     <%= f.label :property_title %>:
     <%= f.text_field :property_title %>
+
     <%= f.label :location %>
     <%= f.text_field :location %>
 
-    <%= f.submit "Search"%>
+    <%= f.submit "Search"%> -->
   </div>
 <% end %>
 
-<h1>Explore your desired destinations</h1>
-<%= paginate @listings_page %>
 <% if current_user.role == "moderator"||current_user.role == "superadmin"-%>
   <p>Authorization level: <%= current_user.role.capitalize %> <a href="listings/verify">[Administration Page Here]</a></p>
     <% @listings.each do |listing| %>
       <% if listing.verify == true %>
-
-
-
-                  <div class="d-flex flex-row">
-                        <div class="p-2">
-                          <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                              <% if listing.photos[0] == nil %>
-                              <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
-                              <% else -%>
-                              <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
-                              <% end %>
-                              <h5 class="card-title"><%= listing.property_title %></h5>
-                              <p class="card-text"><%= listing.price %></p>
-                              <p class="card-text"><%= listing.location %></p>
-                              <p class="card-text"><%= listing.description %></p>
-                              <a href="#" class="btn btn-primary"><%= link_to 'Show', listing_path(listing) %></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-
-
+      <div class="card-deck">
+          <div class="card">
+              <% if listing.photos[0] == nil %>
+                <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
+              <% else -%>
+                <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title"><%= listing.property_title %></h5>
+                <p class="card-text"><%= listing.price %></p>
+                <p class="card-text"><%= listing.location %></p>
+                <a href="#" class="btn btn-primary"> <%= link_to 'Details', listing_path(listing) %> </a>
+              </div>
+            </div>
+          </div>
         <% end %>
-    <% end %>
+      <% end %>
+
 
 
 
@@ -80,4 +71,7 @@
   <% end %>
 <% end -%>
 
+</div>
+<div class="pagination">
+  <%= paginate @listings_page %>
 </div>

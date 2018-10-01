@@ -14,47 +14,58 @@
 </head>
 <body>
   <div id="header">
-    <!-- amend this to red -->
     <% if signed_in? -%>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">CoolStay</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">CoolStay</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <%= link_to 'Explore Now', controller: 'listings'%>
+            </li>
+            <li class="nav-item active">
+              <%= link_to 'New listing', new_listing_path %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to 'My Profile', user_profile_path(current_user.id) %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
+            </li>
+            <div class="dropdown show">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+              </a>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <%= link_to 'Explore Now', controller: 'listings'%>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'New listing', new_listing_path %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'My Profile', user_profile_path(current_user.id) %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
-          </li>
-        </ul>
-      </div>
-    </nav>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </nav>
     <% else -%>
-    <ul>
-      <li><%= link_to "Sign in with Google", "/auth/google_oauth2" %></li>
-      <li><%= link_to t(".sign_in"), sign_in_path %></li>
-    </ul>
+      <ul>
+        <li><%= link_to "Sign in with Google", "/auth/google_oauth2" %></li>
+        <li><%= link_to t(".sign_in"), sign_in_path %></li>
+      </ul>
     <% end -%>
   </div>
 
-  <div id="flash">
-    <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
-    <% end %>
-  </div>
+    <div id="flash">
+      <% flash.each do |key, value| -%>
+        <div id="flash_<%= key %>"><%=h value %></div>
+      <% end %>
+    </div>
 
-  <%= yield %>
+  <div class="global-body">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

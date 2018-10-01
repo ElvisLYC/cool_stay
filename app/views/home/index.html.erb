@@ -3,7 +3,27 @@
 <datalist id="list"></datalist>
 <%= f.submit "Go"%>
 <% end -%>
-<h2>Plan your memorable journey with us now!</h2>
+
+<% @listings.each do |listing| %>
+  <% if listing.verify == true %>
+  <div class="card-deck">
+      <div class="card">
+          <% if listing.photos[0] == nil %>
+            <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
+          <% else -%>
+            <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= listing.property_title %></h5>
+            <p class="card-text"><%= listing.price %></p>
+            <p class="card-text"><%= listing.location %></p>
+            <a href="#" class="btn btn-primary"> <%= link_to 'Details', listing_path(listing) %> </a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
 
 <!-- <h3>----------------------------------------------------</h3>
 <h4>To input navbar, background pic here</h4>
