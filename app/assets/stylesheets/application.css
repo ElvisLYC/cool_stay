@@ -77,7 +77,6 @@ table tr td,th{
   display: inline-flex !important;
   width: 30vw !important;
   height: 25.5vw !important;
-  overflow:  visible | hidden | scroll | auto | inherit !important;
   /* padding:50px !important; */
   margin: 20px;
 }
