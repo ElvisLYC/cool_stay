@@ -7,7 +7,7 @@
     <%= f.submit "Go"%>
     <% end -%>
 
-    <!-- <p>Filter by:</p>
+    <p>Filter by:</p>
     <%= form_for :listing, url: listings_search_path, method: :get do |f| %>
     <%= f.label :property_title %>:
     <%= f.text_field :property_title %>
@@ -15,7 +15,7 @@
     <%= f.label :location %>
     <%= f.text_field :location %>
 
-    <%= f.submit "Search"%> -->
+    <%= f.submit "Search"%>
   </div>
 <% end %>
 
@@ -40,35 +40,26 @@
           </div>
         <% end %>
       <% end %>
-
-
-
-
-
 <% else -%>
   <% @listings_page.each do |listing| %>
-  <% if listing.verify == true %>
-        <div class="thumb-image">
-        <% listing.photos.each do |photo| %>
-          <%= image_tag photo.url %>
-        <% end %>
-      </div>
-    <ul>
-      <h3>Title: <%= listing.property_title %></h3>
-      <li>Price: <%= listing.price %></li>
-      <li>Location: <%= listing.location %></li>
-      <li>Description: <%= listing.description %></li>
-      <li><%= link_to 'Show', listing_path(listing) %></li>
-  <% end %>
-
-      <% if listing.user_id == current_user.id %>
-      <li><%= link_to 'Edit', edit_listing_path(listing) %></li>
-      <li><%= link_to 'Destroy', listing_path(listing),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></li>
-      <% end %>
-    </ul>
-  <% end %>
+    <% if listing.verify == true %>
+    <div class="card-deck">
+        <div class="card">
+            <% if listing.photos[0] == nil %>
+              <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
+            <% else -%>
+              <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= listing.property_title %></h5>
+              <p class="card-text"><%= listing.price %></p>
+              <p class="card-text"><%= listing.location %></p>
+              <a href="#" class="btn btn-primary"> <%= link_to 'Details', listing_path(listing) %> </a>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  <% end -%>
 <% end -%>
 
 </div>

@@ -2,15 +2,15 @@ Setup Sidekiq, Redis and Rails (3 terminals)
 rails s
 redis-server
 bundle exec sidekiq -q default -q mailers
-
+================================================================================
 
 AJAX Search Note:-
-
 #  pluck(:item) --> return a column active record method
 # https://apidock.com/rails/ActiveRecord/Calculations/pluck
 #  uniq -> doesn't return duplicate value
 # reference: https://apidock.com/ruby/Array/uniq
 
+=================================================================================
 
 Deployment Note:-
 #Use the foreman gem to manage starting and stopping Rails server and Sidekiq with a Procfile.
@@ -32,7 +32,7 @@ Deployment Note:-
   9. Procfile for a Rails web app might include the following process type:     web: bundle exec rails server -p $PORT
 
 
-  Deplyment Steps:-
+  Depolyment Steps:-
     -Have a Heroku account.
     -Have Heroku toolbelt installed on your computer.
     -Make sure your app's code base is managed with Git.
@@ -45,7 +45,7 @@ Deployment Note:-
 How to implement a changes to heroku :-
 - git add .
 - git commit -m""
-- git git push
+- git push
 - git push heroku master
 - heroku run rake db:migrate
 - heroku restart
@@ -55,8 +55,14 @@ Others:-
 - heroku logs -t      to check database status
 - heroku rails console
 
+================================================================================
 
-
-
-Inserting image:-
+Side Note: Inserting default image:-
 [ Rails.root.join("app/assets/images/No_Image_Available.png").open]
+
+================================================================================
+
+Testing
+  1.test-unit
+  2.rspec
+  3.respec-given

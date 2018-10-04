@@ -4,7 +4,7 @@ class Listing < ApplicationRecord
 
 
   belongs_to :user
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
 
   # pg_search_scope :search_by_property_title, :against => [:property_title]
   # malaysia
