@@ -1,20 +1,64 @@
+<%= render 'navbar' %>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
 
-<table>
-  <% @listing.photos.each_with_index do |listing,index| %>
-    <tr>
-      <td><%= image_tag listing.url %></td>
-      <% if current_user.id == @listing.user_id %>
+	<div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="" contenteditable="false"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class="active" contenteditable="false"></li>
+        <li data-target="#myCarousel" data-slide-to="2" class="" contenteditable="false"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="item active">
+          <%= image_tag @listing.photos[Random.rand(@listing.photos.length)].url %>
+          <div class="carousel-caption">
+              <h4 class="">Second Slide Title</h4>
+              <p class="">
+                 Description for Second Slide, this is Second Slide.
+              </p>
+          </div>
+      </div>
+
+      <% @listing.photos.each.with_index do |listing,index| %>
+
+        <div class="item" style="">
+                <%= image_tag @listing.photos[index].url %>
+        </div>
+      <% end -%>
+        <div class="item" style="">
+            <%= image_tag @listing.photos[0].url %>
+            <div class="carousel-caption">
+                <h4 class="">First Slide Title</h4>
+                <p class="">
+                   Description for First Slide, this First Slide.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+
+</div>
+
+  <% if signed_in? %>
+    <% if current_user.id == @listing.user_id && @listing.photos? == true %>
       <td><%= link_to 'Update Listing', edit_listing_path(@listing) %></td>
       <td><%= link_to 'Delete', delete_photo_path(@listing.id),
-                  method: :post,
-                  data: { confirm: 'Are you sure?' } %>
-      <% end -%>
-      </td>
-    </tr>
-
+      method: :post,
+      data: { confirm: 'Are you sure?' } %></tr>
+    <% end -%>
   <% end -%>
-</table>
 
 <p>
   <strong>Property name:</strong>
@@ -46,7 +90,6 @@
 <% end %>
 <%= form_with scope: :reservation, url: listing_reservations_path(@listing.id), local: true do |form| %>
 
-
 <%= form.text_field :start_date, {class: 'datepicker', placeholder:'Check-in'} %>
 
 
@@ -66,6 +109,10 @@
   </script>
 <p>
   <%= form.submit %>
+</p>
+<p><%= link_to 'Delete this property', listing_path(@listing.id),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
 </p>
 <% end %>
 

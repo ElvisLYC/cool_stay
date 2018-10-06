@@ -1,0 +1,12 @@
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    
+    height: 40vw;
+    min-height: 40vw;
+    max-height: 40vw;
+
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+    line-height: 1;
+}

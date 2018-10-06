@@ -1,7 +1,7 @@
-<h1>New listing</h1>
-<p>
-  <strong>Current User: <%=@user.full_name %></strong>
-</p>
+<%= render 'navbar' %>
+
+<h3>New Listing form</h3>
+
 <%= form_with model: @listing, url: listings_path, local: true do |form| %>
 <% if @listing.errors.any? %>
   <div id="error_explanation">

@@ -1,3 +1,8 @@
+<%= render 'navbar' %>
+
+<%= image_tag ("santorini_1.jpg"), :class => "home-page-image"%>
+
+<div class="home-content">
 <%= form_for :listing, url: global_search_path, method: :get do |f| %>
 <%= f.text_field :term, list: "list", placeholder: "search field" %>
 <datalist id="list"></datalist>
@@ -6,14 +11,20 @@
 
 <% @listings.each do |listing| %>
   <% if listing.verify == true %>
+
+
   <div class="card-deck">
       <div class="card">
-          <% if listing.photos[0] == nil %>
-            <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
-          <% else -%>
-            <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
-          <% end %>
           <div class="card-body">
+            <% if listing.photos[0] == nil %>
+            <a href="listings/<%=listing.id%>">
+            <%= image_tag ("No_Image_Available.png"), :class => "card-img-top"%>
+            </a>
+            <% else -%>
+            <a href="listings/<%=listing.id%>">
+            <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
+            </a>
+            <% end %>
             <h5 class="card-title"><%= listing.property_title %></h5>
             <p class="card-text"><%= listing.price %></p>
             <p class="card-text"><%= listing.location %></p>
@@ -21,9 +32,10 @@
           </div>
         </div>
       </div>
+
     <% end %>
   <% end %>
-
+</div>
 
 <!-- <h3>----------------------------------------------------</h3>
 <h4>To input navbar, background pic here</h4>
