@@ -2,6 +2,10 @@ Setup Sidekiq, Redis and Rails (3 terminals)
 rails s
 redis-server
 bundle exec sidekiq -q default -q mailers
+
+
+*****Find a running port by name
+lsof -i -P | grep -i "redis"
 ================================================================================
 
 AJAX Search Note:-
