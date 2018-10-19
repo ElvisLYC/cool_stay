@@ -4,7 +4,7 @@ class Listing < ApplicationRecord
 
 
   belongs_to :user
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
 
   # pg_search_scope :search_by_property_title, :against => [:property_title]
   # malaysia
@@ -24,6 +24,7 @@ class Listing < ApplicationRecord
                   length: { minimum: 3 }
   validates :location, presence: true,
                   length: { minimum: 4 }
+  validates :photos, presence: true
   # validates :photos, presence: true
 # scopingA
   scope :property_title, -> (property_title) { where property_title: property_title }

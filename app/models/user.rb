@@ -3,8 +3,8 @@ class User < ApplicationRecord
   include Clearance::User
   mount_uploader :avatar, AvatarUploader
   enum role: [:customer, :host, :moderator, :superadmin]
-  has_many :listings
-  has_many :reservations
+  has_many :listings, dependent: :destroy
+  has_many :reservations, dependent: :destroy
   has_many :authentications, dependent: :destroy
   def self.create_with_auth_and_hash(authentication, auth_hash)
     user = self.create!(

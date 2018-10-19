@@ -36,6 +36,10 @@ body{
   background-repeat: no-repeat;
 }
 
+.navbar{
+  margin-bottom: 0px !important;
+}
+
 .navbar-nav > li{
   padding-left:30px;
   padding-right:30px;
@@ -106,4 +110,13 @@ div .card-body{
   margin-left: 20vw !important;
   padding:  20px !important;
   font-size: 30px;
+}
+
+.home-page-image{
+  width: 100vw !important;
+  height: 40vw !important;
+}
+.home-content{
+  padding-top: 2vw !important;
+  padding-left: 7vw !important;
 }

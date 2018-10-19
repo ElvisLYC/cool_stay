@@ -15,7 +15,7 @@ user = {}
 user['password'] = 'asdf'
 
 ActiveRecord::Base.transaction do
-  20.times do
+  10.times do
     user['full_name'] = Faker::Name.name
     user['email'] = Faker::Internet.email
     user['gender'] = Faker::Gender.binary_type
@@ -33,12 +33,15 @@ uids = []
 User.all.each { |u| uids << u.id }
 
 ActiveRecord::Base.transaction do
-  40.times do
+  10.times do
     listing['property_title'] = ["House", "Entire Floor", "Condominium", "Villa", "Townhouse",
       "Castle", "Treehouse", "Igloo", "Yurt", "Cave", "Chalet", "Hut", "Tent", "Other"].sample
     listing['price'] = rand(80..500)
     listing['location'] = Faker::Address.state
     listing['description'] = Faker::Hipster.sentence
+    listing['photos'] = [ Rails.root.join("app/assets/images/santorini_1.jpg").open]
+    listing['verify'] = true
+
 
     listing['room_number'] = rand(0..5)
     listing['bed_number'] = rand(1..6)

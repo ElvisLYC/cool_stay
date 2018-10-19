@@ -1,3 +1,4 @@
+<%= render 'navbar' %>
 <div class="profile_picture">
   <%= image_tag @user_profile.avatar.url %>
 </div>
@@ -63,15 +64,16 @@
   </tr>
 
   <% @user_listing.each_with_index do |listing,index| %>
-    <tr>
-      <td><%= @customer_bookings[index].id %></td>
-      <td><%= @customer_bookings[index].start_date %></td>
-      <td><%= @customer_bookings[index].end_date %></td>
-      <td><%= (@customer_bookings[index].end_date-@customer_bookings[index].start_date).to_i %></td>
-      <td><%= @customer_bookings[index].total_price %></td>
-      <td><%= link_to 'Show', listing_reservation_path(listing.id, @customer_bookings[index].id) %></td>
-
-    </tr>
+    <% if index > @customer_bookings.length %>
+        <tr>
+          <td><%= @customer_bookings[index].id %></td>
+          <td><%= @customer_bookings[index].start_date %></td>
+          <td><%= @customer_bookings[index].end_date %></td>
+          <td><%= (@customer_bookings[index].end_date-@customer_bookings[index].start_date).to_i %></td>
+          <td><%= @customer_bookings[index].total_price %></td>
+          <td><%= link_to 'Show', listing_reservation_path(listing.id, @customer_bookings[index].id) %></td>
+        </tr>
+      <% end %>
     <% end %>
 </table>
 <% end %>

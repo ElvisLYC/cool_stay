@@ -18,5 +18,5 @@
 
 <% if @reservation.payment_status != true %>
   <br>
-  <%= link_to 'Pay Now', verify_payment_path(@listing, @reservation), data:{no_turbolink: true} %>
+  <%= link_to 'Pay Now', verify_payment_path(@listing, @reservation), data: { turbolinks: false } %>
 <% end -%>
