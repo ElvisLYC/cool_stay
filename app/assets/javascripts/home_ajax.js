@@ -1,5 +1,6 @@
-$(document).on('turbolinks:load', function(){
 
+$(document).on('turbolinks:load', function(){
+  alert("niama")
   $("#listing_term").keyup(function(){
     autocomplete()
   });
