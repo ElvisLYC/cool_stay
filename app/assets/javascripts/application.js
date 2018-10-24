@@ -19,3 +19,6 @@
 
 // = require_tree .
 // = require bootstrap-datepicker
+//= require react
+//= require react_ujs
+//= require components

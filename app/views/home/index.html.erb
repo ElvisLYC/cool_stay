@@ -1,7 +1,7 @@
 <%= render 'navbar' %>
 
-<%= image_tag ("santorini_1.jpg"), :class => "home-page-image"%>
-
+<!-- <%= image_tag ("santorini_1.jpg"), :class => "home-page-image"%> -->
+<%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
 <div class="home-content">
 <%= form_for :listing, url: global_search_path, method: :get do |f| %>
 <%= f.text_field :term, list: "list", placeholder: "search field" %>
