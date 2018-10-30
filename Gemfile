@@ -79,3 +79,4 @@ gem 'pg_search'
 gem 'rails_12factor', group: :production
 gem 'react-rails'
 gem 'webpacker'
+gem "font-awesome-rails"

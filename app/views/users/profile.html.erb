@@ -2,13 +2,12 @@
 <div class="profile_picture">
   <%= image_tag @user_profile.avatar.url %>
 </div>
-
 <%= form_for @user_profile, html: { multipart: true } do |f| %>
-  <td><%= link_to 'Update Profile', edit_user_path(@user_id) %></td>
-  <p><%= link_to 'Delete', delete_avatar_path(@user_profile),
+  <%= link_to 'Update Profile', edit_user_path(@user_id) %>|
+  <%= link_to 'Delete', delete_avatar_path(@user_profile),
               method: :post,
               data: { confirm: 'Are you sure?' } %>
-  </p>
+
 <% end %>
 
 <h2>Profile of <%= @user_profile.full_name %></h2>
@@ -40,9 +39,14 @@
       <td><%= listing.description %></td>
       <td><%= link_to 'Details', listing_path(listing) %></td>
       <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-      <td><%= link_to 'Destroy', listing_path(listing),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %></td>
+          <td>
+            <i class="fas fa-trash">
+              <%= link_to 'Delete', listing_path(listing),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+            </i>
+          </td>
+
     </tr>
     <% end %>
 </table>

@@ -1,17 +1,21 @@
+<%= render 'navbar' %>
+
 <% @listings.each do |listing| %>
   <% if listing.verify == true %>
     <div class="card-deck">
         <div class="card">
             <% if listing.photos[0] == nil %>
-              <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
+                <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
             <% else -%>
+            <a href="/listings/<%=listing.id%>">
               <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
+            </a>
             <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= listing.property_title %></h5>
               <p class="card-text"><%= listing.price %></p>
               <p class="card-text"><%= listing.location %></p>
-              <a href="#" class="btn btn-primary"> <%= link_to 'Details', listing_path(listing) %> </a>
+              <%= link_to 'Details', listing_path(listing) %>
             </div>
           </div>
       </div>

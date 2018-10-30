@@ -9,13 +9,20 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
+            <%= form_for :listing, url: global_search_path, method: :get do |f| %>
+            <%= f.text_field :term, list: "list", placeholder: "search field" %>
+            <datalist id="list"></datalist>
+            <%= f.submit "Go"%>
+            <% end -%>
+          </li>
+          <li class="nav-item active">
             <%= link_to 'Explore Now', controller: 'listings'%>
           </li>
           <li class="nav-item active">
             <%= link_to 'New listing', new_listing_path %>
           </li>
           <li class="nav-item active">
-            <%= link_to 'My Profile!', user_profile_path(current_user.id) %>
+            <%= link_to 'Edit Profile', user_profile_path(current_user.id) %>
           </li>
           <li class="nav-item active">
             <%= link_to t(".sign_out"), sign_out_path, method: :delete %>

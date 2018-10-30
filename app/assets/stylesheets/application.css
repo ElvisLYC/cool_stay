@@ -17,7 +17,9 @@
   *= require rails_bootstrap_forms
   *= require bootstrap-datepicker
   */
-
+  /*
+   *= require font-awesome
+   */
 .global-body{
 
 }
@@ -30,7 +32,7 @@ h2{
 }
 
 body{
-  /* background-color: lightgrey; */
+  background-color: white;
   /* background-image: url("santorini_1.jpg"); */
   background-size: 100vw 55vw;
   background-repeat: no-repeat;

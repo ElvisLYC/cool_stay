@@ -1,25 +1,5 @@
   <%= render 'navbar' %>
-  <h3>Explore your desired destinations</h3>
   <!-- search form -->
-  <div class="search-div">
-    <%= form_for :listing, url: global_search_path, method: :get do |f| %>
-    <%= f.text_field :term, list: "list", placeholder: "search field" %>
-    <datalist id="list"></datalist>
-    <%= f.submit "Go"%>
-    <% end -%>
-
-    <p>Filter by:</p>
-    <%= form_for :listing, url: listings_search_path, method: :get do |f| %>
-    <%= f.label :property_title %>:
-    <%= f.text_field :property_title %>
-
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-
-    <%= f.submit "Search"%>
-  </div>
-<% end %>
-
 <!-- access to admin page for admin and above -->
 <% if signed_in? -%>
   <% if current_user.role == "moderator"||current_user.role == "superadmin"-%>
