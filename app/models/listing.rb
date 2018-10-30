@@ -31,6 +31,6 @@ class Listing < ApplicationRecord
   scope :location, -> (location) { where location: location }
 
 
-  pg_search_scope :search_by_title, :against => :title
+  # pg_search_scope :search_by_title, :against => :title
 
 end

@@ -15,7 +15,7 @@
             <%= link_to 'New listing', new_listing_path %>
           </li>
           <li class="nav-item active">
-            <%= link_to 'My Profile', user_profile_path(current_user.id) %>
+            <%= link_to 'My Profile!', user_profile_path(current_user.id) %>
           </li>
           <li class="nav-item active">
             <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
