@@ -86,7 +86,7 @@
 		  <% end %>
 		<% end %>
 		<%= form_with scope: :reservation, url: listing_reservations_path(@listing.id), local: true do |form| %>
-		<%= form.text_field :start_date, {class: 'datepicker', placeholder:'Check-in'} %>
+		<%= form.text_field :start_date, {class: 'datepicker', placeholder:'Check-in',autocomplete:"off"} %>
 		  <script type="text/javascript">
 		    $(document).ready(function(){
 		      $('.datepicker').datepicker();
@@ -94,7 +94,7 @@
 		  </script>
 
 
-		  <%= form.text_field :end_date, {class: 'datepicker', placeholder:'Check-out'} %>
+		  <%= form.text_field :end_date, {class: 'datepicker', placeholder:'Check-out', autocomplete:"off"} %>
 
 		  <script type="text/javascript">
 		    $(document).ready(function(){
