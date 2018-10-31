@@ -1,26 +1,25 @@
-# README
+# CoolStay
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hi, I am Elvis.
 
-Things you may want to cover:
+CoolStay is basically an AirBnB Clone which is one of my personal project during my bootcamp at Next Academmy. The development is still on-going and you can expect more features to be implemented.
 
-* Ruby version
+## [Live Site (hosted by Heroku)](http://coolstay.herokuapp.com/)
 
-* System dependencies
+## Framework
+Ruby on Rails 5.2.1
 
-* Configuration
+## Languages
+- HTML
+- CSS
+- Ruby
+- Javascript
+- jQuery
 
-* Database creation
+## Others
+- PostgreSQL
+- AJAX
+- Bootstrap
+- Braintree
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-* url: http://coolstay.herokuapp.com/
