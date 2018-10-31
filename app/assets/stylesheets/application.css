@@ -20,8 +20,8 @@
   /*
    *= require font-awesome
    */
-.global-body{
-
+body{
+  border: 1vw;
 }
 h1 a{
   color:teal;
@@ -119,6 +119,19 @@ div .card-body{
   height: 40vw !important;
 }
 .home-content{
-  padding-top: 2vw !important;
-  padding-left: 7vw !important;
+  position: relative;
+  width: 100vw;
+  margin-left: 0;
+  margin-right: 0;
+  border: 1vw;
+}
+
+
+/* navbar */
+input#session_password.form-control, input#user_id.form-control{
+  width: 450px;
+  overflow: hidden;
+  position: relative;
+  left: 10px;
+  /* test */
 }

@@ -29,8 +29,10 @@ class ReservationsController < ApplicationController
         # ReservationMailer.booking_email(@reservation, @user).deliver_now
         redirect_to listing_reservation_path(@reservation.listing_id,@reservation.id) #reservations/:id
         #listings/:listing_id/reservat
+        @message = ""
       else
-        render 'listings/show'
+        redirect_to listing_path(@listing.id)
+        @message = "Please enter valid check-in and check-out date"
       end
   end
 

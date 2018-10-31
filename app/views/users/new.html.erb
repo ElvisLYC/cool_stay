@@ -1,5 +1,5 @@
 <div id="clearance" class="sign-up">
-  <%= form_for @user do |form| %>
+  <%= form_for User.new do |form| %>
     <%= render partial: '/users/form', object: form %>
   <% end %>
 </div>
