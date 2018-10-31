@@ -1,4 +1,8 @@
-<%= render 'navbar' %>
+<% if signed_in? -%>
+  <%= render 'navbar' %>
+  <% else -%>
+  <%= render 'navbar_guest' %>
+<% end -%>
 
 <!-- <%= image_tag ("santorini_1.jpg"), :class => "home-page-image"%> -->
 <div class="home-content">

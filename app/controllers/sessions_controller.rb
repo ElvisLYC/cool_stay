@@ -21,4 +21,9 @@ def create_from_omniauth
   sign_in(user)
   redirect_to @next, :notice => @notice
 end
+
+  def destroy
+    sign_out
+    redirect_to root_path
+  end
 end
