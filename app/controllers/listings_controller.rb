@@ -85,7 +85,7 @@ class ListingsController < ApplicationController
       #   @listing.update(photos: "/assets/images/No_Image_Available.png")
       #   @listing.save
       # end
-      redirect_to @listing
+      redirect_to listing_confirmation_path
     else
       render 'new'
     end

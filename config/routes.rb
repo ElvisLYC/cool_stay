@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     get "users/profile"
 
     get "users/:id" => 'users#profile', as: 'user_profile'
+    get "listings/confirmation" => 'listings#listing_confirmation', as: 'listing_confirmation'
     get "users/:id/delete" => 'users#destroy', as: 'delete_user'
 
 

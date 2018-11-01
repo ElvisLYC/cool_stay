@@ -55,7 +55,7 @@ How to implement a changes to heroku :-
 - heroku restart
 
 Others:-
-- heroku bundle exec rake db:seed
+- heroku run rails db:seed
 - heroku logs -t      to check database status
 - heroku rails console
 
