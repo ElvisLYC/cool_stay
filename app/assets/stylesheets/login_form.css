@@ -1,5 +1,5 @@
 .login-popup-heading>h4 {
-    color: #258b47;
+    color: #FF5A5F;
     font-size: 25px;
     line-height: 30px;
 }
@@ -10,7 +10,7 @@
     margin: 0px auto;
 }
 .login-popup-btn {
-    background: #258b47;
+    background: #FF5A5F;
     border: none;
     border-radius: 25px;
     color: #fff;
@@ -26,6 +26,6 @@
     -o-transition: all 700ms ease;
 }
 a{
-     color: #258b47;
+     color: #FF5A5F;
      font-size: 15px;
 }

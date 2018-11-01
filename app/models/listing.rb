@@ -2,7 +2,6 @@ class Listing < ApplicationRecord
   include PgSearch
   include Filterable
 
-
   belongs_to :user
   has_many :reservations, dependent: :destroy
 
