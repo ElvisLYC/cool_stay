@@ -1,7 +1,7 @@
 <% if signed_in? -%>
-  <%= render 'navbar' %>
-  <% else -%>
-  <%= render 'navbar_guest' %>
+  <%= render partial: "shared/navbar" %>
+<% else -%>
+  <%= render partial: "shared/navbar_guest" %>
 <% end -%>
 
 <%= render 'listings' %>

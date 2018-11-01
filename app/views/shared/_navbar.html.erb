@@ -1,0 +1,47 @@
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">CoolStay</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <%= form_for :listing, url: global_search_path, method: :get do |f| %>
+              <%= f.text_field :term, list: "list", placeholder: "search field" %>
+              <datalist id="list"></datalist>
+              <%= f.submit "Go", data: { disable_with: false }%>
+              <% end -%>
+            </li>
+            <li class="nav-item active">
+              <a class="dropdown-item" href="/">About Us</a>
+            </li>
+            <li class="nav-item active">
+              <a class="dropdown-item" href="/listings">Explore</a>
+            </li>
+            <li class="nav-item active">
+              <a class="dropdown-item" href="/listings/new">New Listing</a>
+            </li>
+        <!-- Account Dropdown -->
+          <li class="nav-item action">
+            <div class="dropdown mx-2 profile-box">
+              <a class="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle fa-lg"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/users/<%=current_user.id%>">Your Profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Invite Friends</a>
+                <a class="dropdown-item" href="/users/<%=current_user.id%>">Account Settings</a>
+                <div class="dropdown-divider"></div>
+                <div id="header" class="btn dropdown-item">
+                  <%= link_to t(".sign_out"), sign_out_path, method: :delete, class:"dropdown-item"  %>
+                </div>
+              </div>
+            </div>
+          </li>
+            </div>
+          </ul>
+        </div>
+      </nav>

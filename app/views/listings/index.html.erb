@@ -1,10 +1,14 @@
-  <%= render 'navbar' %>
   <!-- search form -->
 <!-- access to admin page for admin and above -->
+<% if signed_in? -%>
+    <%= render partial: "shared/navbar" %>
+  <% else -%>
+    <%= render partial: "shared/navbar_guest" %>
+<% end -%>
+
 <% if signed_in? -%>
   <% if current_user.role == "moderator"||current_user.role == "superadmin"-%>
     <p>Authorization level: <%= current_user.role.capitalize %> <a href="listings/verify">[Administration Page Here]</a></p>
   <% end -%>
 <% end -%>
-
 <%= render 'listings' %>
