@@ -7,18 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <%= link_to 'Explore Now', controller: 'listings'%>
+          <a class="dropdown-item" href="/listings">Explore</a>
         </li>
-        <li>
-          <a class="nav-item active" href="#" class="dropdown-toggle" data-toggle="modal" data-target="#at-login">Log In</a>
+        <li class="nav-item active">
+          <a href="#" class="dropdown-item" data-toggle="modal" data-target="#at-login">Log In</a>
         </li>
       </ul>
     </div>
   </nav>
 
   <!--  Modals for signup / signin -->
-<div class="container">
-  <div class="row">
   <div class="col-md-12">
     <section class="at-login-form">
       <!-- MODAL LOGIN -->

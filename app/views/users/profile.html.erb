@@ -1,7 +1,8 @@
-<%= render 'navbar' %>
-<div class="profile_picture">
+<%= render partial: "shared/navbar" %>
+
+
   <%= image_tag @user_profile.avatar.url %>
-</div>
+
 <%= form_for @user_profile, html: { multipart: true } do |f| %>
   <%= link_to 'Update Profile', edit_user_path(@user_id) %>|
   <%= link_to 'Delete', delete_avatar_path(@user_profile),

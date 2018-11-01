@@ -135,3 +135,24 @@ input#session_password.form-control, input#user_id.form-control{
   left: 10px;
   /* test */
 }
+
+a.dropdown-item{
+  font-size: 18px;
+}
+
+/* Search Bar */
+input#listing_term{
+  width: 30vw;
+  line-height: 2.2vw;
+  border-radius: 18px;
+}
+
+.grow {
+    transition:height 0.5s;
+    -webkit-transition:height 0.5s;
+    text-align: center;
+
+}
+.grow:hover {
+    height: 3.0vw; /* This is the height on hover */
+}
