@@ -1,5 +1,4 @@
-<%= render 'navbar' %>
-
+<%= render 'shared/navbar_no_search' %>
 <h3>New Listing form</h3>
 <%= form_with model: @listing, url: listings_path, local: true do |form| %>
 <% if @listing.errors.any? %>

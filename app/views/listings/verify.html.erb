@@ -1,8 +1,7 @@
-<%= render 'navbar' %>
+<%= render 'shared/navbar' %>
 
 <% if current_user.role == "moderator" || current_user.role == "superadmin" -%>
   <p>You are <%= @user_ranking.capitalize %></p>
-  <%= link_to 'New listing', new_listing_path %>
   <%= paginate @listings_page %>
   <table>
     <% if @listings == nil %>
