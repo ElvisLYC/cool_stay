@@ -41,8 +41,9 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @reservation = Reservation.new
+    @listings = Listing.where(verify: true)
+    @listings_page = @listings.page params[:page]
     # @listing_photos = @listing.photos
-    @listings = Listing.find(params[:id])
     @user = User.find(@listing.user_id)
     @host = @user
     # @user_id = User.find(current_user.id)

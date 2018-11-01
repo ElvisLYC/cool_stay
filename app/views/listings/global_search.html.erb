@@ -1,5 +1,4 @@
-<%= render 'navbar' %>
-
+<%= render partial: "shared/navbar" %>
 <% @listings.each do |listing| %>
   <% if listing.verify == true %>
     <div class="card-deck">
