@@ -20,6 +20,7 @@
   /*
    *= require font-awesome
    */
+
 body{
   border: 1vw;
 }
@@ -45,7 +46,10 @@ body{
 .navbar-nav > li{
   padding-left:30px;
   padding-right:30px;
+}
 
+div.whole-navbar{
+  /* find a way to aligh everything to center */
 }
 
 li.align_right{
@@ -54,19 +58,9 @@ li.align_right{
 div .thumb-image img{
     width: 100px !important;
     height: 100px !important;
-
 }
 
-.profile_picture img{
-  border-radius: 50%;
-  width: 100px !important;
-  height: 100px !important;
-  /* float: right; */
-  position: fixed;
-  top:0;
-  right:0;
-  /* height: 23px; */
-}
+
 
 table tr td,th{
   border: 1px solid grey;
@@ -125,9 +119,8 @@ div .card-body{
 }
 
 .pagination{
-  margin-left: 20vw !important;
-  padding:  20px !important;
-  font-size: 30px;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .home-page-image{
@@ -178,4 +171,29 @@ input#listing_term{
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 
+}
+
+
+/* Profile picture setting as below */
+.profile-image{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 1px solid grey
+}
+
+.profile-image-container{
+
+  text-align: center;
+}
+/* thumb nail image below */
+.profile_picture img{
+  border-radius: 50%;
+  width: 100px !important;
+  height: 100px !important;
+  /* float: right; */
+  position: fixed;
+  top:0;
+  right:0;
+  /* height: 23px; */
 }
