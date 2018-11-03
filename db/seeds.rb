@@ -39,7 +39,7 @@ ActiveRecord::Base.transaction do
     listing['price'] = rand(80..500)
     listing['location'] = Faker::Address.state
     listing['description'] = Faker::Hipster.sentence
-    listing['photos'] = [ Rails.root.join("app/assets/images/santorini_1.jpg").open]
+    listing['photos'] = [ Rails.root.join("public/santorini_1.jpg").open]
     listing['verify'] = true
 
 
