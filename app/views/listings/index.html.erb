@@ -11,4 +11,6 @@
     <p>Authorization level: <%= current_user.role.capitalize %> <a href="listings/verify">[Administration Page Here]</a></p>
   <% end -%>
 <% end -%>
-<%= render 'listings' %>
+<div class="all_decks">
+  <%= render 'listings' %>
+</div>

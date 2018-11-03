@@ -1,7 +1,11 @@
 <% if signed_in? -%>
   <%= render partial: "shared/navbar" %>
-  <%= render 'listings' %>
+  <div class="all_decks">
+    <%= render 'listings' %>
+  </div>
 <% else -%>
   <%= render partial: "shared/navbar_guest" %>
-  <%= render 'listings' %>
+  <div class="all_decks">
+    <%= render 'listings' %>
+  </div>
 <% end -%>

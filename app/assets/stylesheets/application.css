@@ -79,33 +79,42 @@ table tr td,th{
 .align_center{
   text-align: center;
 }
+
+div.all_decks{
+  display: flex;
+  flex-wrap: wrap;
+}
 .card-deck{
   display: inline-flex !important;
-  width: 300px !important;
-  height: 250px !important;
+  width: 450px !important;
+  height: 350px !important;
   /* padding:50px !important; */
-  margin: 20px;
-}
-
-.card-img-top{
-  height: 45% !important;
-  width: 100% !important;
+  margin: 10px;
 }
 
 div .card{
   width: 300px !important;
-  height: 250px !important;
+  height: 340px !important;
   line-height: 0.8 !important;
 }
 
 div .card-body{
   width: 100% !important;
-  height: 30% !important;
+  height: 250px !important;
 }
-
+/*  */
+.color:hover
+{
+        background:#53a7ea;
+}
+/*  */
 .card-text{
   color: red !important;
-  font-size: 0.8vw;
+  font-size: 1.4vw;
+}
+.card-img-top{
+  height: 60% !important;
+  width: 100% !important;
 }
 
 .pagination{
@@ -155,4 +164,11 @@ input#listing_term{
 }
 .grow:hover {
     height: 3.0vw; /* This is the height on hover */
+}
+
+.grow1:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+
 }
