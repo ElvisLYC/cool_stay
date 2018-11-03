@@ -4,11 +4,11 @@
       <div class="card">
           <div class="card-body">
             <% if listing.photos[0] == nil %>
-            <a href="listings/<%=listing.id%>">
+            <a href="/listings/<%=listing.id%>">
             <%= image_tag ("No_Image_Available.png"), :class => "card-img-top"%>
             </a>
             <% else -%>
-            <a href="listings/<%=listing.id%>">
+            <a href="/listings/<%=listing.id%>">
             <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
             </a>
             <% end %>

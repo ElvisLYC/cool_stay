@@ -1,7 +1,7 @@
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     display: block;
-    min-height: 45vw;
-    max-height: 45vw;
+    min-height: 35vw;
+    max-height: 35vw;
 
     min-width: 100%;
     width: 100%;
