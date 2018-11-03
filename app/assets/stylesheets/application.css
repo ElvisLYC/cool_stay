@@ -90,17 +90,24 @@ div.all_decks{
   height: 350px !important;
   /* padding:50px !important; */
   margin: 10px;
+  border-radius: 18px;
+  border-radius: 18px;
 }
 
 div .card{
   width: 300px !important;
   height: 340px !important;
   line-height: 0.8 !important;
+  border-radius: 18px;
+
 }
 
 div .card-body{
   width: 100% !important;
   height: 250px !important;
+  border: 1px solid lightgrey;
+  border-radius: 18px;
+
 }
 /*  */
 .color:hover
