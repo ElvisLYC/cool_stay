@@ -26,6 +26,6 @@
     -o-transition: all 700ms ease;
 }
 a{
-     color: #FF5A5F;
+     color: teal;
      font-size: 15px;
 }

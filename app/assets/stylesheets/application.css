@@ -43,11 +43,21 @@ body{
   margin-bottom: 0px !important;
 }
 
+.navbar-brand{
+  font-weight: bolder;
+  font-size: 2vw;
+  color: teal !important;
+}
+
 .navbar-nav > li{
   padding-left:30px;
   padding-right:30px;
+  color: teal;
 }
 
+a.dropdown-item{
+  color: teal;
+}
 div.whole-navbar{
   /* find a way to aligh everything to center */
 }
@@ -110,12 +120,15 @@ div .card-body{
 }
 /*  */
 .card-text{
-  color: red !important;
+  color: teal !important;
   font-size: 1.4vw;
 }
 .card-img-top{
   height: 60% !important;
   width: 100% !important;
+}
+.details-link{
+  color: darkblue !important;
 }
 
 .pagination{

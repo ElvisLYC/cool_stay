@@ -15,7 +15,7 @@
             <h5 class="card-title"><%= listing.property_title %></h5>
             <p class="card-text"><%= listing.price %></p>
             <p class="card-text"><%= listing.location %></p>
-            <a href="#" class="btn btn-primary"> <%= link_to 'Details', listing_path(listing) %> </a>
+            <%= link_to 'Details', listing_path(listing), class:"details-link" %>
           </div>
         </div>
       </div>
