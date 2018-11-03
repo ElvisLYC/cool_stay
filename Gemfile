@@ -80,3 +80,4 @@ gem 'rails_12factor', group: :production
 gem 'react-rails'
 gem 'webpacker'
 gem "font-awesome-rails"
+gem 'rails_serve_static_assets'
