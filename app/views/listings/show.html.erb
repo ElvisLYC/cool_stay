@@ -73,10 +73,14 @@
 				<p>
 					<%= form.submit %>
 				</p>
-				<p><%= link_to 'Delete this property', listing_path(@listing.id),
-										method: :delete,
-										data: { confirm: 'Are you sure?' } %>
-				</p>
+				<% if signed_in? %>
+					<% if current_user.id == @listing.user_id && @listing.photos? == true %>
+							<p><%= link_to 'Delete this property', listing_path(@listing.id),
+													method: :delete,
+													data: { confirm: 'Are you sure?' } %>
+							</p>
+					 <% end -%>
+				 <% end -%>
 				<% end %>
 		</div>
 	</div>

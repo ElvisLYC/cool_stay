@@ -45,7 +45,7 @@ body{
 
 .navbar-brand{
   font-weight: bolder;
-  font-size: 2vw;
+  font-size: 25px;
   color: teal !important;
 }
 
@@ -54,7 +54,12 @@ body{
   padding-right:30px;
   color: teal;
 }
-
+p.card-text{
+  font-size: 15px;
+}
+a.details-link{
+  font-size: 13px;
+}
 a.dropdown-item{
   color: teal;
 }
@@ -99,7 +104,7 @@ div.all_decks{
 }
 
 div .card{
-  width: 300px !important;
+  width: 375px !important;
   height: 340px !important;
   line-height: 0.8 !important;
   border-radius: 18px;
