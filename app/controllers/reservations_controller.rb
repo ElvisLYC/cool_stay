@@ -25,19 +25,13 @@ class ReservationsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @host = User.find(@listing.user_id)
 
-      if @reservation.save
-        # ReservationMailer.booking_email(@reservation, @user).deliver_now
-        redirect_to listing_reservation_path(@reservation.listing_id,@reservation.id) #reservations/:id
-        #listings/:listing_id/reservat
-        @message = ""
-      else
-        redirect_to listing_path(@listing.id)
-        @message = "Please enter valid check-in and check-out date"
-      end
-  end
-
-  def verify_payment
-
+    if @reservation.save
+      redirect_to listing_reservation_path(@reservation.listing_id,@reservation.id) #reservations/:id
+      @message = ""
+    else
+      redirect_to listing_path(@listing.id)
+      @message = "Please enter valid check-in and check-out date"
+    end
   end
 
   private
