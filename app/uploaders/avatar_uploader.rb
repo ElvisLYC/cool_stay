@@ -1,11 +1,12 @@
 class AvatarUploader < CarrierWave::Uploader::Base
-  storage :file
+  include CarrierWave::MiniMagick
+  # storage :file
+  storage :aws
 
  # => 'file.png'
   # require 'carrierwave/orm/activerecord'
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
   process resize_to_fit: [400, 400]
 
   version :thumb do
@@ -60,6 +61,15 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [50, 50]
   end
 
+  version :medium do
+    process resize_to_fit: [300,300]
+  end
+  version :small do
+    process resize_to_fit: [140,140]
+  end
+  version :thumbnail do
+    process resize_to_fit: [64,64]
+  end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_whitelist
