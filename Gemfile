@@ -67,8 +67,12 @@ gem 'omniauth-google-oauth2'
 gem 'faker'
 gem 'kaminari'
 gem "bootstrap_form", ">= 4.0.0.alpha1"
+
+gem 'carrierwave-aws'
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
+gem 'aws-sdk-rails'
+
 gem 'bootstrap-datepicker-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
