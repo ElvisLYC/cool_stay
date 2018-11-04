@@ -49,7 +49,7 @@ class UsersController < Clearance::UsersController
     @user_id = User.find(current_user.id)
     @user = User.find(params[:id])
       if @user.update(user_params)
-        redirect_to root_path
+        redirect_to user_profile_path(current_user.id)
       else
         render 'edit'
     end
@@ -68,7 +68,7 @@ class UsersController < Clearance::UsersController
     @user_profile.remove_avatar!
     @user_profile.save
     # @user_profile.remove_avatar!
-    redirect_to root_path
+    redirect_to user_profile_path(current_user.id)
   end
 
   private
