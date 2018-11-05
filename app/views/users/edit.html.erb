@@ -15,18 +15,12 @@
             <%= form.label :email %>
             <%= form.text_field :email, type: 'email', class: "form-control" %>
           </div>
-          <div class="password-field text-center">
-            <%= form.label :password %>
-            <%= form.password_field :password, class: "form-control" %>
-          </div>
           <div>
-            <%= form.file_field :avatar %>
+
+            <%= form.file_field  :avatar %>
           </div>
 
             <%= form.submit class:"btn btn-primary login-popup-btn"%>
-            <div class="text-center">
-              Already have an account? <%= link_to "Sign In", sign_in_path %>
-            </div>
         </div>
       </div>
     </div>

@@ -11,22 +11,18 @@ class ListingsController < ApplicationController
     @listings = Listing.where(verify: true)
     x = params[:listing][:property_title]
     y = params[:listing][:location]
-
     @listings = @listings.filter(property_title:x,location:y)
-    # @listings = @listings.property_title(params[:listing][:property_title]) if params[:listing][:property_title].present?
-    # @listings = @listings.location(params[:listing][:location]) if params[:listing][:location].present?
     @listings_page = @listings.page params[:page]
   end
 
   def global_search
-
     @listings = Listing.where(verify: true)
-    if params[:listing][:term]
-      @listings = @listings.search_by_listings(params[:listing][:term])
-    else
-      @Listings = @listings
-    end
-      @listings_page = @listings.page params[:page]
+      if params[:listing][:term]
+        @listings = @listings.search_by_listings(params[:listing][:term])
+      else
+        @Listings = @listings
+      end
+    @listings_page = @listings.page params[:page]
   end
 
   def ajax_search
@@ -40,13 +36,11 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    @reservation = Reservation.new
     @listings = Listing.where(verify: true)
+    @reservation = Reservation.new
     @listings_page = @listings.page params[:page]
-    # @listing_photos = @listing.photos
     @user = User.find(@listing.user_id)
     @host = @user
-    # @user_id = User.find(current_user.id)
   end
 
   def new
@@ -81,10 +75,6 @@ class ListingsController < ApplicationController
     @user = User.find(@listing.user_id)
 
     if @listing.save
-      # if @listing.photos == nil
-      #   @listing.update(photos: "/assets/images/No_Image_Available.png")
-      #   @listing.save
-      # end
       redirect_to listing_confirmation_path
     else
       render 'new'
