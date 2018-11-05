@@ -1,22 +1,22 @@
 <%= render partial: "shared/navbar" %>
 <% @listings.each do |listing| %>
   <% if listing.verify == true %>
-    <div class="card-deck">
+    <div class="card-deck grow1">
         <div class="card">
-            <% if listing.photos[0] == nil %>
-                <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
-            <% else -%>
-            <a href="/listings/<%=listing.id%>">
-              <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
-            </a>
-            <% end %>
-            <div class="card-body">
+          <div class="card-body">
+              <% if listing.photos[0] == nil %>
+                  <%= image_tag  ("No_Image_Available.png"), :class => "card-img-top"%>
+              <% else -%>
+              <a href="/listings/<%=listing.id%>">
+                <%= image_tag listing.photos.first.url, :class => "card-img-top"%>
+              </a>
+              <% end %>
               <h5 class="card-title"><%= listing.property_title %></h5>
               <p class="card-text"><%= listing.price %></p>
               <p class="card-text"><%= listing.location %></p>
               <%= link_to 'Details', listing_path(listing) %>
-            </div>
           </div>
+        </div>
       </div>
     <% end %>
   <% end %>

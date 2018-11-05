@@ -1,3 +1,5 @@
+<%= render 'shared/navbar' %>
+
 <div id="clearance" class="sign-up">
 
   <%= form_for @user do |form| %>
@@ -16,11 +18,11 @@
             <%= form.text_field :email, type: 'email', class: "form-control" %>
           </div>
           <div>
-
             <%= form.file_field  :avatar %>
           </div>
-
-            <%= form.submit class:"btn btn-primary login-popup-btn"%>
+          <br>
+            <%= form.submit class:"btn btn-primary"%>
+            <%= link_to 'Back', root_path, class:"btn btn-secondary" %>
         </div>
       </div>
     </div>
