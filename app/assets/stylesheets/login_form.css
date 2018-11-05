@@ -1,16 +1,18 @@
 .login-popup-heading>h4 {
-    color: #FF5A5F;
+    color: teal;
     font-size: 25px;
     line-height: 30px;
+    text-align: center;
+    margin-right: 20px;
 }
 .new_reg_popup, .new_login_popup {
     border-radius: 2px;
-    min-height: 332px;
+    min-height: 260px;
     width: 500px;
     margin: 0px auto;
 }
 .login-popup-btn {
-    background: #FF5A5F;
+    background: teal;
     border: none;
     border-radius: 25px;
     color: #fff;
@@ -28,4 +30,11 @@
 a{
      color: teal;
      font-size: 15px;
+}
+
+div.row{
+  justify-content: center;
+}
+div.checkbox{
+  text-align: center;
 }

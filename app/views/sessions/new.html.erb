@@ -12,16 +12,8 @@
         </div>
         <button type="submit" class="btn btn-default login-popup-btn" name="submit" value="1">Login</button>
         <div class="other-links">
-        <%= link_to "Google Sign In", "/auth/google_oauth2", class:"btn btn-danger login-popup-btn" %>
-
-        <div class="form-group text-center">
-          <a class="pwd-forget" href="javascript:void(0)" id="open_forgotPassword">Forget Password</a>
+          <%= link_to "Google Sign In", "/auth/google_oauth2", class:"btn btn-danger login-popup-btn" %>
         </div>
-        <% if Clearance.configuration.allow_sign_up? %>
-          <div class="text-center">
-            Not registered yet? <%= link_to "Click Here", sign_up_path %>
-          </div>
-      <% end %>
     <% end %>
   </div>
 </div>
