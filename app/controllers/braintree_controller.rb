@@ -16,7 +16,6 @@ class BraintreeController < ApplicationController
 
     if result.success?
       # add email execution here
-
       @reservation = Reservation.find(params[:id])
       @reservation.update(payment_status: true)
       @user = User.find(@reservation.user_id)

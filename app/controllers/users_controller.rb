@@ -67,7 +67,6 @@ class UsersController < Clearance::UsersController
     @user_profile = User.find(params[:id])
     @user_profile.remove_avatar!
     @user_profile.save
-    # @user_profile.remove_avatar!
     redirect_to user_profile_path(current_user.id)
   end
 
