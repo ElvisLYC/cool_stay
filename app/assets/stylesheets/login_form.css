@@ -38,3 +38,7 @@ div.row{
 div.checkbox{
   text-align: center;
 }
+
+.login-popup-heading{
+  max-width: 465px;
+}
