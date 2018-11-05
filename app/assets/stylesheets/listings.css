@@ -2,3 +2,7 @@
   font-size: 1.5vw;
   font-family: 'Roboto', sans-serif;
 }
+
+input{
+  background-color: lightgrey;
+}
