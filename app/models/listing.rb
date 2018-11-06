@@ -24,8 +24,8 @@ class Listing < ApplicationRecord
   validates :location, presence: true,
                   length: { minimum: 4 }
   validates :photos, presence: true
-  # validates :photos, presence: true
-# scopingA
+
+# scoping
   scope :property_title, -> (property_title) { where property_title: property_title }
   scope :location, -> (location) { where location: location }
 

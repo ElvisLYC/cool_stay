@@ -64,11 +64,6 @@
 			</p>
 			<!-- Datepicker Start -->
 				<div class="date-selection">
-						<% if @reservation.errors != nil %>
-							<% @reservation.errors.full_messages.each do |error| %>
-								<%= error %>
-							<% end %>
-						<% end %>
 						<%= form_with scope: :reservation, url: listing_reservations_path(@listing.id), local: true do |form| %>
 						<%= form.text_field :start_date, {class: 'datepicker', placeholder:'Check-in',autocomplete:"off"} %>
 							<script type="text/javascript">
@@ -85,6 +80,19 @@
 							<p>
 								<%= form.submit "Reserve" %>
 							</p>
+							<% if @reservation.errors.any?%>
+							<div id="error_explanation">
+								<h2>
+									<%= pluralize(@reservation.errors.count, "error") %> prohibited
+									this reservation from being saved:
+								</h2>
+								<ul>
+									<% @reservation.errors.full_messages.each do |msg| %>
+										<li><%= msg %></li>
+									<% end %>
+								</ul>
+							</div>
+						<% end %>
 					<% if signed_in? %>
 						<% if current_user.id == @listing.user_id && @listing.photos? == true %>
 								<p><%= link_to 'Delete this property', listing_path(@listing.id),

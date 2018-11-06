@@ -3,9 +3,10 @@ class Reservation < ApplicationRecord
   belongs_to :listing
   validates :start_date, presence: true
   validates :end_date, presence: true
+
+
   validate :reserved_date, if: -> { start_date && end_date }
   validate :check_dates, if: -> { start_date && end_date }
-
   # test scoping for filtering
   scope :property_title, -> (property_title) { where property_title: property_title }
   scope :location, -> (location) { where location: location }

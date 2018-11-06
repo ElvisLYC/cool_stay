@@ -19,18 +19,17 @@ class ReservationsController < ApplicationController
     details[:start_date] = Date.strptime(reservation_params[:start_date], '%m/%d/%Y') if reservation_params[:start_date] != ""
     details[:end_date] = Date.strptime(reservation_params[:end_date], '%m/%d/%Y') if reservation_params[:end_date] != ""
     @reservation = Reservation.new(details)
-    @reservation.user_id = current_user.id
+    if current_user != nil
+      @reservation.user_id = current_user.id
+    end
     @reservation.listing_id = params[:listing_id]
-    @user = User.find(@reservation.user_id)
+    # @user = User.find(@reservation.user_id)
     @listing = Listing.find(params[:listing_id])
     @host = User.find(@listing.user_id)
 
     if @reservation.save
       redirect_to listing_reservation_path(@reservation.listing_id,@reservation.id) #reservations/:id
       @message = ""
-    else
-      redirect_to listing_path(@listing.id)
-      @message = "Please enter valid check-in and check-out date"
     end
   end
 
