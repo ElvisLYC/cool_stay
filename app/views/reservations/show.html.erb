@@ -9,13 +9,7 @@
 <p><strong>Description</strong> <%= @listing.description %></p>
 <p><strong>Bed Number</strong> <%= @listing.bed_number %></p>
 <p><strong>Guest Number</strong> <%= @listing.guest_number %></p>
-
-<% @listing.photos.each_with_index do |listing,index| %>
-  <tr>
-    <td><%= image_tag listing.url %></td>
-  </tr>
-<% end -%>
-
+ 
 <% if @reservation.payment_status != true %>
   <br>
   <%= link_to 'Pay Now', verify_payment_path(@listing, @reservation), data: { turbolinks: false } %>
